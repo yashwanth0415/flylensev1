@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Industries We Serve | FlyLense Media Partner</title>
+    <meta name="description" content="FlyLense Media Partner serves diverse industries including Education, Jewellery, Food & Restaurants, Real Estate, Healthcare, Automotive, Fashion, Technology, and more with cinematic video production.">
+    <link rel="icon" type="image/png" sizes="50x50" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #030508;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img, video, svg, iframe {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        ul { list-style: none; }
+
+        :root {
+            --bg-deep: #030508;
+            --bg-card: #080d14;
+            --bg-card-hover: #0d141e;
+            --bg-elevated: #101822;
+            --border-subtle: #1a2230;
+            --border-light: #223044;
+            --border-accent: #2a3a52;
+            --accent: #0066cc;
+            --accent-light: #0080ff;
+            --accent-dark: #004d99;
+            --accent-gradient: linear-gradient(135deg, #0052a3 0%, #0066cc 50%, #0080ff 100%);
+            --accent-gradient-soft: linear-gradient(135deg, rgba(0, 82, 163, 0.15) 0%, rgba(0, 128, 255, 0.08) 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #d4dbe5;
+            --text-muted: #8b9ab0;
+            --text-dim: #5a6e85;
+            --white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.7);
+            --shadow-accent: 0 10px 40px rgba(0, 102, 204, 0.25);
+            --shadow-accent-strong: 0 20px 60px rgba(0, 102, 204, 0.35);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 100px;
+            --nav-height: 80px;
+            --max-width: 1280px;
+            --container-padding: 2rem;
+        }
+
+        ::selection { background: var(--accent); color: #030508; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-light); }
+
+        .floating-social {
+            position: fixed; bottom: 30px; z-index: 9998;
+            display: flex; flex-direction: column; gap: 14px;
+        }
+        .floating-social-left { left: 24px; }
+        .floating-social-right { right: 24px; }
+        .floating-social a {
+            display: flex; align-items: center; justify-content: center;
+            width: 56px; height: 56px; border-radius: 50%;
+            color: var(--white); font-size: 1.4rem;
+            text-decoration: none;
+            transition: all var(--transition-bounce);
+            box-shadow: var(--shadow-card); position: relative;
+        }
+        .floating-social a:hover { transform: scale(1.12) translateY(-4px); box-shadow: var(--shadow-accent-strong); }
+        .floating-social a .tooltip {
+            position: absolute; background: var(--bg-elevated); color: var(--white);
+            padding: 6px 14px; border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 500;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: all var(--transition-fast); border: 1px solid var(--border-light);
+        }
+        .floating-social a:hover .tooltip { opacity: 1; }
+        .floating-social-left a .tooltip { left: 70px; top: 50%; transform: translateY(-50%); }
+        .floating-social-right a .tooltip { right: 70px; top: 50%; transform: translateY(-50%); }
+
+        .social-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+        .social-whatsapp { background: #25D366; }
+        .social-instagram::after, .social-whatsapp::after {
+            content: ''; position: absolute; inset: -4px; border-radius: 50%;
+            animation: pulse-ring 2.5s ease-out infinite; opacity: 0;
+        }
+        .social-instagram::after { border: 2px solid #fd5949; }
+        .social-whatsapp::after { border: 2px solid #25D366; }
+        @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+
+        @media (max-width: 576px) {
+            .floating-social a { width: 48px; height: 48px; font-size: 1.1rem; }
+            .floating-social { gap: 10px; }
+            .floating-social-left { left: 16px; } .floating-social-right { right: 16px; }
+            .floating-social a .tooltip { display: none; }
+        }
+
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            height: var(--nav-height); background: transparent;
+            backdrop-filter: none; border-bottom: 1px solid transparent;
+            transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s, box-shadow 0.4s, height 0.4s;
+            will-change: background, backdrop-filter, box-shadow, border-color, height;
+            opacity: 0; transform: translateY(-20px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s, box-shadow 0.4s, height 0.4s;
+        }
+        .navbar.loaded { opacity: 1; transform: translateY(0); }
+        .navbar.scrolled {
+            height: 88px; background: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(24px); border-bottom: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .navbar-container {
+            max-width: var(--max-width); margin: 0 auto; padding: 0 var(--container-padding);
+            height: 100%; display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; z-index: 1001; flex-shrink: 0; transition: transform var(--transition-bounce); }
+        .nav-logo:hover { transform: scale(1.04); }
+        .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+        .nav-logo img.logo-title { height: 48px; }
+        .navbar.scrolled .nav-logo img { filter: brightness(1) invert(0); }
+
+        .nav-links { display: flex; align-items: center; gap: 6px; }
+        .nav-links a { text-decoration: none; color: rgba(255, 255, 255, 0.9); font-size: 0.88rem; font-weight: 500; padding: 0.55rem 1.2rem; border-radius: var(--radius-full); transition: all 0.3s ease; position: relative; white-space: nowrap; letter-spacing: 0.01em; }
+        .navbar.scrolled .nav-links a { color: rgba(255, 255, 255, 0.85); }
+        .nav-links a::before { content: ''; position: absolute; bottom: 8px; left: 50%; width: 0; height: 2px; background: var(--accent-gradient); border-radius: 2px; transform: translateX(-50%); transition: width var(--transition-smooth); }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 60%; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a.active { color: var(--white); font-weight: 600; }
+
+        .nav-links li.dropdown { position: relative; }
+        .nav-links .dropdown-toggle { display: flex; align-items: center; gap: 6px; padding: 0.55rem 1.2rem; border-radius: var(--radius-full); transition: all 0.3s ease; }
+        .nav-links .dropdown-toggle::after { content: '\f107'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.7rem; transition: transform var(--transition-fast); }
+        .nav-links li.dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+        .nav-links .dropdown-menu {
+            position: absolute; top: 100%; left: 0; min-width: 220px;
+            background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);
+            box-shadow: var(--shadow-elevated); opacity: 0; visibility: hidden;
+            transform: translateY(0); transition: all var(--transition-smooth); z-index: 1001; padding: 0.5rem 0; margin-top: 0;
+        }
+        .nav-links li.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-links .dropdown-menu a { display: block; padding: 0.7rem 1.5rem; color: var(--text-secondary); font-size: 0.88rem; font-weight: 500; border-radius: 0; white-space: nowrap; }
+        .nav-links .dropdown-menu a:hover { background: rgba(6, 102, 204, 0.08); color: var(--white); padding-left: 1.8rem; }
+
+        .nav-cta { background: var(--accent-gradient); color: #030508 !important; font-weight: 600; padding: 0.6rem 1.5rem; border-radius: var(--radius-full); box-shadow: var(--shadow-accent); transition: all var(--transition-bounce); }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-accent-strong); }
+
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 8px; border-radius: var(--radius-sm); transition: transform var(--transition-bounce), background var(--transition-fast); }
+        .hamburger:hover { background: rgba(255, 255, 255, 0.05); } .hamburger:active { transform: scale(0.95); }
+        .hamburger span { display: block; width: 26px; height: 2.5px; background: var(--white); border-radius: 2px; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: center; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); width: 28px; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-12px) scale(0.5); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); width: 28px; }
+
+        .menu-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 998; opacity: 0; visibility: hidden; transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s; backdrop-filter: blur(4px); }
+        .menu-backdrop.active { opacity: 1; visibility: visible; }
+
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 360px; max-width: 90%; height: 100vh; background: var(--bg-deep); z-index: 999; padding: 100px 2.5rem 2rem; transition: right 0.5s cubic-bezier(0.22, 1, 0.36, 1); overflow-y: auto; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5); border-left: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 8px; }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu::-webkit-scrollbar { width: 3px; } .mobile-menu::-webkit-scrollbar-track { background: transparent; } .mobile-menu::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        .mobile-menu a { text-decoration: none; color: var(--text-secondary); font-size: 1.1rem; font-weight: 500; padding: 1rem 1.2rem; border-radius: var(--radius-md); transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); position: relative; border-left: 3px solid transparent; }
+        .mobile-menu a:hover { color: var(--accent); background: rgba(6, 102, 204, 0.08); border-left-color: var(--accent); transform: translateX(6px); }
+        .mobile-menu a.active { color: var(--accent); font-weight: 600; background: rgba(6, 102, 204, 0.1); border-left-color: var(--accent); }
+        .mobile-dropdown { position: relative; }
+        .mobile-dropdown-toggle { display: flex; justify-content: space-between; align-items: center; width: 100%; text-decoration: none; color: var(--text-secondary); font-size: 1.1rem; font-weight: 500; padding: 1rem 1.2rem; border-radius: var(--radius-md); background: transparent; border: none; cursor: pointer; transition: all 0.3s; }
+        .mobile-dropdown-toggle:hover { color: var(--accent); background: rgba(6, 102, 204, 0.08); }
+        .mobile-dropdown-toggle i { transition: transform 0.3s; }
+        .mobile-dropdown-toggle.active i { transform: rotate(180deg); }
+        .mobile-dropdown-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .mobile-dropdown-menu a { font-size: 0.95rem; padding: 0.75rem 1.5rem; border-left: none; margin-left: 1rem; }
+        .mobile-dropdown-menu a:hover { border-left-color: var(--accent); padding-left: 1.5rem; }
+        .mobile-cta { background: var(--accent-gradient); color: #030508 !important; font-weight: 600; padding: 1rem 1.5rem; border-radius: var(--radius-full); text-align: center; margin-top: 1rem; box-shadow: var(--shadow-accent); }
+        .mobile-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--shadow-accent-strong); }
+        .menu-divider { width: 50px; height: 2px; background: var(--accent-gradient); border-radius: 2px; margin: 0.5rem 0 1.5rem; transition: width var(--transition-smooth); }
+        .mobile-menu.active .menu-divider { width: 80px; }
+        .menu-footer { display: none; }
+
+        .hero {
+            position: relative; width: 100%; min-height: 70vh; height: auto;
+            padding: calc(var(--nav-height) + 2rem) 0 4rem; overflow: hidden;
+            background: var(--bg-deep); display: flex; align-items: center;
+        }
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.25; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 5, 8, 0.4) 0%, rgba(3, 5, 8, 0.8) 60%, #030508 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 10; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--container-padding); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 40vh; width: 100%; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 102, 204, 0.15); border: 1px solid rgba(0, 102, 204, 0.3); padding: 10px 20px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+        .hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 800; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both; }
+        .hero h1 .highlight { background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: accentShift 4s ease-in-out infinite; }
+        @keyframes accentShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .hero-cta-group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both; }
+        .hero .lead { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-secondary); line-height: 1.8; max-width: 580px; margin-bottom: 2.5rem; animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-gradient); color: #030508 !important; padding: 1rem 2.2rem; border-radius: var(--radius-full); font-weight: 600; font-size: 1rem; text-decoration: none; box-shadow: var(--shadow-accent); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; }
+        .btn-primary::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #0350a8 0%, #0666cc 50%, #3d9bff 100%); opacity: 0; transition: opacity var(--transition-smooth); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: var(--shadow-accent-strong); gap: 14px; }
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary span { position: relative; z-index: 1; }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); padding: 1rem 2.2rem; border-radius: var(--radius-full); font-weight: 600; font-size: 1rem; border: 1px solid rgba(255, 255, 255, 0.15); transition: all var(--transition-smooth); }
+        .btn-secondary:hover { background: rgba(6, 102, 204, 0.1); border-color: var(--accent); color: var(--accent); transform: translateY(-2px); gap: 14px; }
+
+        @media (max-width: 768px) { :root { --nav-height: 64px; } .nav-links { display: none; } .hamburger { display: flex; } .navbar.scrolled { height: 72px; } .hero { min-height: 50vh; padding: calc(var(--nav-height) + 1.5rem) 0 1.5rem; } .section { padding: 4rem 1.5rem; } }
+        @media (max-width: 480px) { .hero-video-bg { position: absolute; top: -10%; left: 0; } :root { --container-padding: 1.25rem; } .hero-badge { display: none; } .btn-primary, .btn-secondary { padding: 0.85rem 1.5rem; font-size: 0.9rem; } .nav-logo img { height: 32px; } .nav-logo img.logo-title { height: 28px; } }
+
+        .section { padding: 4rem var(--container-padding); position: relative; overflow: hidden; }
+        .section-inner { max-width: var(--max-width); margin: auto; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; position: relative; padding-left: 30px; }
+        .section-tag::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 22px; height: 1px; background: var(--accent-gradient); }
+        .section-title { font-family: 'Poppins'; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 700; color: var(--white); margin-bottom: 1rem; line-height: 1.15; }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 620px; margin: 0 auto; line-height: 1.7; }
+
+        .reveal { opacity: 0; transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.revealed { opacity: 1; }
+        .reveal-up { transform: translateY(50px); } .reveal-up.revealed { transform: translateY(0); }
+        .reveal-left { transform: translateX(-50px); } .reveal-left.revealed { transform: translateX(0); }
+        .reveal-right { transform: translateX(50px); } .reveal-right.revealed { transform: translateX(0); }
+        .reveal-scale { transform: scale(0.9); } .reveal-scale.revealed { transform: scale(1); }
+        .delay-1 { transition-delay: 0.05s; } .delay-2 { transition-delay: 0.1s; } .delay-3 { transition-delay: 0.15s; } .delay-4 { transition-delay: 0.2s; }
+        .delay-5 { transition-delay: 0.25s; } .delay-6 { transition-delay: 0.3s; } .delay-7 { transition-delay: 0.35s; } .delay-8 { transition-delay: 0.4s; }
+
+        /* Industry Grid - 2 cards per row, wider cards */
+        .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .industry-card { position: relative; border-radius: var(--radius-xl); overflow: hidden; background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all var(--transition-smooth); cursor: pointer; aspect-ratio: 16 / 10; }
+        .industry-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.7) 100%); z-index: 1; transition: all var(--transition-smooth); }
+        .industry-card:hover::before { background: linear-gradient(180deg, rgba(0, 102, 204, 0) 0%, rgba(3, 5, 8, 0.9) 100%); }
+        .industry-card:hover { transform: translateY(-8px);  border-color: var(--border-light); }
+        .industry-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .industry-card:hover img { transform: scale(1.05); }
+        .industry-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; z-index: 2; }
+        .industry-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+        .industry-title { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 650; color: var(--white); margin-bottom: 0.5rem; text-align: center;}
+        .industry-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; text-align:center; }
+        .industry-link { display: none; }
+
+        @media (max-width: 1024px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .industries-grid { grid-template-columns: 1fr; } }
+
+        /* Featured Industries - Equal width cards */
+        .featured-industry { width: 100%;position: relative; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border-subtle); margin-bottom: 1.5rem; transition: all var(--transition-smooth); }
+        .featured-industry:hover { transform: translateY(-4px); box-shadow: var(--shadow-accent); border-color: var(--accent); }
+        .featured-industry img { width: 100%; height: 100%; object-fit: cover; }
+        .featured-industry .grid-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+        .featured-visual { min-height: 400px; }
+        .featured-industry img { width: 100%; height: 100%; object-fit: cover; }
+        .featured-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+        .featured-title { font-family: 'Poppins', sans-serif; font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 700; color: var(--white); margin-bottom: 1rem; }
+        .featured-desc { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; }
+        .featured-stats { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
+        .stat-item { text-align: center; flex: 1; min-width: 120px; }
+        .stat-number { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+        .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-top: 0.5rem; }
+        .featured-link { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font-weight: 500; transition: all var(--transition-fast); }
+        .featured-link:hover { gap: 14px; }
+
+        @media (max-width: 900px) { 
+            .featured-industry .grid-wrapper { grid-template-columns: 1fr; }
+            .featured-industry.reverse .grid-wrapper { direction: ltr; }
+            .featured-visual { min-height: 300px; }
+        }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .service-card { padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); transition: all var(--transition-smooth); }
+        .service-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow-accent); }
+        .service-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; color: #030508; font-size: 1.4rem; margin-bottom: 1rem; }
+        .service-title { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+        .service-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+        /* CTA Banner */
+        .cta-section { background: var(--bg-deep); padding: 5rem var(--container-padding); }
+        .cta-banner { max-width: var(--max-width); margin: 0 auto; background: linear-gradient(135deg, rgba(6, 102, 204, 0.12) 0%, rgba(3, 5, 8, 0.9) 100%); border: 1px solid rgba(6, 102, 204, 0.2); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: space-between; padding: 3rem 3.5rem; flex-wrap: wrap; gap: 2rem; position: relative; overflow: hidden; }
+        .cta-banner::before { content: ''; position: absolute; top: -50%; right: -30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(6, 102, 204, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+        .cta-banner::after { content: ''; position: absolute; bottom: -50%; left: -30%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(6, 102, 204, 0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+        .cta-content { position: relative; z-index: 2; max-width: 600px; }
+        .cta-content h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; }
+        .cta-content h2 span { background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .cta-content p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; }
+        .cta-actions { position: relative; z-index: 2; display: flex; gap: 1rem; flex-wrap: wrap; }
+        @media (max-width: 768px) { .cta-banner { padding: 2rem; text-align: center; } .cta-content { max-width: 100%; } .cta-actions { justify-content: center; } }
+
+        /* Footer */
+        .footer { position: relative; background: #030303; border-top: 1px solid var(--border-subtle); padding: 4rem var(--container-padding) 2rem; overflow: hidden; clear: both; }
+        .footer::before { content: ''; position: absolute; inset: 0; background-image: url('img/1.png'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.04; z-index: 0; }
+        .footer-inner { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; }
+        .footer-brand .logo { height: 44px; margin-bottom: 1.5rem; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 300px; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-light); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all var(--transition-smooth); }
+        .footer-social a:hover { border-color: var(--accent); color: var(--accent); background: rgba(6, 102, 204, 0.1); transform: translateY(-3px); }
+        .footer-social a.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%); border-color: transparent; color: var(--white); }
+        .footer-title { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 1.5rem; }
+        .footer-links { display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links a { color: var(--text-muted); font-size: 0.9rem; transition: all var(--transition-fast); position: relative; padding-left: 0; }
+        .footer-links a::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 0; height: 1px; background: var(--accent-gradient); transition: width var(--transition-smooth); }
+        .footer-links a:hover { color: var(--accent); padding-left: 16px; }
+        .footer-links a:hover::before { width: 10px; }
+        .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 1rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+        .contact-item i { width: 20px; color: var(--accent); font-size: 1.1rem; margin-top: 2px; }
+        .contact-item a { color: var(--text-muted); transition: color var(--transition-fast); }
+        .contact-item a:hover { color: var(--accent); }
+        .footer-bottom { max-width: var(--max-width); margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: var(--text-dim); font-size: 0.85rem; }
+        .footer-bottom-links { display: flex; gap: 2rem; }
+        .footer-bottom-links a { color: var(--text-dim); font-size: 0.8rem; transition: color var(--transition-fast); }
+        .footer-bottom-links a:hover { color: var(--accent); }
+        @media (max-width: 1024px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+        @media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; } .footer-brand .logo { margin: 0 auto 1.5rem; } .footer-brand p { max-width: 100%; margin: 0 auto 1.5rem; } .footer-social { justify-content: center; } .footer-links a::before { display: none; } .footer-links a:hover { padding-left: 0; } .contact-item { justify-content: center; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+        .back-to-top { position: fixed; bottom: 2.5rem; right: 2.5rem; width: 52px; height: 52px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-primary); cursor: pointer; z-index: 900; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all var(--transition-smooth); }
+        .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { background: var(--accent-gradient); color: #050505; border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-accent); }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 100px;
+            left: 49%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both, bounce 2s ease-in-out 1.5s infinite;
+        }
+        .hero-scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color var(--transition-fast);
+        }
+        .hero-scroll-indicator a:hover {
+            color: var(--accent);
+        }
+        .hero-scroll-indicator i {
+            font-size: 1.3rem;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div class="floating-social floating-social-left">
+        <a href="https://www.instagram.com/flylensemediapartner/" target="_blank" class="social-instagram" aria-label="Follow us on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="tooltip">Follow on Instagram</span>
+        </a>
+    </div>
+    <div class="floating-social floating-social-right">
+        <a href="https://wa.me/919989571223" target="_blank" class="social-whatsapp" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="tooltip">Chat on WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/thumbnails/Oakridge_Promo_Video_01.png">
+            <source src="assets/Videos/Landscape/Oakridge_Promo_Video_01.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fa-solid fa-industry"></i> Industries We Serve</div>
+            <h1>Industries <span class="highlight">We Serve</span></h1>
+            <p class="lead">From education to hospitality, jewellery to real estate we craft cinematic stories tailored to each industry's unique language and audience.</p>
+            <div class="hero-cta-group">
+                <a href="contact.html" class="btn-primary"><i class="fa-solid fa-rocket"></i> <span>Start a Project</span></a>
+                <a href="#industries" class="btn-secondary"><i class="fa-solid fa-arrow-down"></i> <span>Explore Industries</span></a>
+                 
+</div>
+        </div>
+        
+    </section>
+    <div class="hero-scroll-indicator">
+            <a href="#industries"><i class="fa-solid fa-chevron-down"></i><span>Explore</span></a>
+        </div><br><br><br>
+   <section class="section" id="industries">
+    <div class="section-inner">
+        <div class="section-header reveal reveal-up">
+            <span class="section-tag">Our Expertise</span>
+            <h2 class="section-title">Industries We <span class="highlight">Serve</span></h2>
+            <p class="section-subtitle">Specialized video production for diverse sectors — each with its own visual language and storytelling needs.</p>
+        </div>
+
+        <div class="industries-grid">
+            <article class="industry-card reveal reveal-up delay-1" onclick="location.href='education.html'">
+                <!-- 教育：更换为课堂授课场景，更贴合校园和教学主题 -->
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&crop=center" alt="Education Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Education</h3>
+                    <p class="industry-desc">Campus films, admission reels, and brand stories for schools, colleges, and ed-tech platforms.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-2" onclick="location.href='jewellery.html'">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop&crop=center" alt="Jewellery Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Jewellery</h3>
+                    <p class="industry-desc">Luxury macro reels, collection launches, and heritage films for premium jewellery brands.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-3" onclick="location.href='food.html'">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop&crop=center" alt="Food & Restaurant Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Food & Restaurants</h3>
+                    <p class="industry-desc">Sizzling kitchen close-ups, ambient dining films, and social reels for culinary brands.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-4" onclick="location.href='portfolio.html#real-estate'">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&crop=center" alt="Real Estate Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Real Estate</h3>
+                    <p class="industry-desc">Property showcases, aerial site tours, and architectural walkthroughs for developers.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-5" onclick="location.href='portfolio.html#healthcare'">
+                <!-- 医疗：更换为专业医生诊疗场景，体现关怀与科技感 -->
+                <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop&crop=center" alt="Healthcare Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Healthcare</h3>
+                    <p class="industry-desc">Patient stories, facility tours, and medical technology films for hospitals and clinics.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-6" onclick="location.href='portfolio.html#automotive'">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop&crop=center" alt="Automotive Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Automotive</h3>
+                    <p class="industry-desc">Vehicle launches, test drive films, and dealership content for auto brands.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-7" onclick="location.href='portfolio.html#fashion'">
+                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop&crop=center" alt="Fashion & Lifestyle Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Fashion & Lifestyle</h3>
+                    <p class="industry-desc">Runway films, lookbooks, and influencer campaigns for apparel and beauty brands.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-8" onclick="location.href='portfolio.html#technology'">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center" alt="Technology Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Technology</h3>
+                    <p class="industry-desc">Product demos, explainer videos, and brand films for SaaS, apps, and tech startups.</p>
+                </div>
+            </article>
+
+            <article class="industry-card reveal reveal-up delay-9" onclick="location.href='portfolio.html#events'">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop&crop=center" alt="Events & Entertainment Industry" loading="lazy">
+                <div class="industry-content">
+                    <h3 class="industry-title">Events & Entertainment</h3>
+                    <p class="industry-desc">Concert films, conference coverage, festival highlights, and live event production.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== FEATURED INDUSTRIES - DEEP DIVE ===== -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Deep Dive</span>
+                <h2 class="section-title">Featured <span class="highlight">Industry Stories</span></h2>
+                <p class="section-subtitle">In-depth look at our work across key sectors.</p>
+            </div>
+
+            <!-- Education Featured -->
+            <article class="featured-industry reveal reveal-left">
+                <div class="grid-wrapper">
+                    <div class="featured-visual">
+                        <img src="assets/images/Education/1.avif" alt="Education Cinematic Film">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Education</span>
+                        <h2 class="featured-title">Crafting Visual Stories for <span class="highlight">Educational Excellence</span></h2>
+                        <p class="featured-desc">From campus films that capture campus life to admission reels that drive enrollments, we help educational institutions showcase their unique identity, academic rigor, and student success stories through cinematic storytelling.</p>
+                        <div class="featured-stats">
+                            <div class="stat-item"><div class="stat-number" data-count="50">0</div><div class="stat-label">Institutions</div></div>
+                            <div class="stat-item"><div class="stat-number" data-count="500">0</div><div class="stat-label">Projects</div></div>
+                            <div class="stat-item"><div class="stat-number" data-count="8">0</div><div class="stat-label">Years</div></div>
+                        </div>
+                        <a href="education.html" class="featured-link"><i class="fa-solid fa-arrow-right"></i> Explore Education Portfolio</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Jewellery Featured -->
+            <article class="featured-industry reveal reveal-right reverse">
+                <div class="grid-wrapper">
+                    <div class="featured-content">
+                        <span class="featured-tag">Jewellery</span>
+                        <h2 class="featured-title">Illuminating <span class="highlight">Timeless Elegance</span></h2>
+                        <p class="featured-desc">From luxury macro reels that capture every facet to heritage brand films that tell generations of craftsmanship, we create visual poetry that makes jewellery shine on screen as brilliantly as in person.</p>
+                        <div class="featured-stats">
+                            <div class="stat-item"><div class="stat-number" data-count="12">0</div><div class="stat-label">Brands</div></div>
+                            <div class="stat-item"><div class="stat-number" data-count="45">0</div><div class="stat-label">Collections Filmed</div></div>
+                            <div class="stat-item"><div class="stat-number" data-count="100">0</div><div class="stat-label">Macro Shots</div></div>
+                        </div>
+                        <a href="jewellery.html" class="featured-link"><i class="fa-solid fa-arrow-right"></i> Explore Jewellery Portfolio</a>
+                    </div>
+                    <div class="featured-visual">
+                        <img src="assets/images/Jwellery/1.avif" alt="Jewellery Macro Cinematography">
+                    </div>
+                </div>
+            </article>
+
+            <!-- Food Featured -->
+            <article class="featured-industry reveal reveal-left">
+                <div class="grid-wrapper">
+                    <div class="featured-visual">
+                        <img src="assets/images/Food & Restaurent/1.avif" alt="Food & Restaurant Cinematography">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Food & Restaurants</span>
+                        <h2 class="featured-title">Capturing <span class="highlight">Culinary Artistry</span></h2>
+                        <p class="featured-desc">From sizzling kitchen close-ups to atmospheric dining experiences, we translate flavor into visuals. Our food films make audiences taste through the screen — driving reservations, deliveries, and brand love.</p>
+                        <div class="featured-stats">
+                            <div class="stat-item"><div class="stat-number" data-count="25">0</div><div class="stat-label">Brands</div></div>
+                            <div class="stat-item"><div class="stat-number" data-count="120">0</div><div class="stat-label">Reels Produced</div></div>
+                            <div class="stat-item"><div class="stat-number" data-count="50">0</div><div class="stat-label">Kitchen Hours</div></div>
+                        </div>
+                        <a href="food.html" class="featured-link"><i class="fa-solid fa-arrow-right"></i> Explore Food Portfolio</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES BY INDUSTRY ===== -->
+    <!-- <section class="section" style="background: var(--bg-deep);">
+        <div class="section-inner">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">Specialized Video Production by <span class="highlight">Industry</span></h2>
+                <p class="section-subtitle">Specialized video production services designed for each sector's unique requirements.</            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal reveal-up delay-1">
+                    <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="service-title">Education</h3>
+                    <p class="service-desc">Campus films, admission reels, virtual tours, faculty profiles, alumni stories, event coverage, ed-tech product demos.
+                </div>
+                <div class="service-card reveal reveal-up delay-2">
+                    <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3 class="service-title">Jewellery</h3>
+                    <p class="service-desc">Macro cinematography, collection launches, heritage films, bridal collections, craftsmanship documentaries, retail reels.
+                </div>
+                <div class="service-card reveal reveal-up delay-3">
+                    <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h3 class="service-title">Food & Restaurants</h3>
+                    <p class="service-desc">Menu videography, ambiance films, chef profiles, recipe reels, delivery app content, franchise showcases.
+                </div>
+                <div class="service-card reveal reveal-up delay-4">
+                    <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+                    <h3 class="service-title">Real Estate</h3>
+                    <p class="service-desc">Property walkthroughs, aerial site tours, architectural photography, developer brand films, pre-launch teasers.
+                </div>
+                <div class="service-card reveal reveal-up delay-5">
+                    <div class="service-icon"><i class="fa-solid fa-hospital"></i></div>
+                    <h3 class="service-title">Healthcare</h3>
+                    <p class="service-desc">Patient testimonials, facility tours, medical technology demos, doctor profiles, wellness campaigns, CSR films.
+                </div>
+                <div class="service-card reveal reveal-up delay-5">
+                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
+                    <h3 class="service-title">Automotive</h3>
+                    <p class="service-desc">Vehicle launches, test drive POV, dealership tours, feature highlights, motorsport coverage, EV tech explainers.
+                </div>
+                <div class="service-card reveal reveal-up delay-7">
+                    <div class="service-icon"><i class="fa-solid fa-shirt"></i></div>
+                    <h3 class="service-title">Fashion & Lifestyle</h3>
+                    <p class="service-desc">Runway films, lookbooks, influencer campaigns, behind-the-scenes, collection launches, brand documentaries.
+                </div>
+                <div class="service-card reveal reveal-up delay-8">
+                    <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="service-title">Technology</h3>
+                    <p class="service-desc">Product demos, SaaS explainer videos, app walkthroughs, startup pitch films, tech conference coverage.
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-section">
+        <div class="cta-banner">
+            <div class="cta-content reveal reveal-left">
+                <h2>Ready to Elevate Your <span>Industry Presence?</span></h2>
+                <p>Let's create compelling visual content that speaks your industry's language and drives real results.</p><br>
+                <div class="cta-actions">
+                    <a href="https://wa.me/919989571223" target="_blank" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> <span>Discuss Project</span></a>
+                    <a href="mailto:hello@flylense.com" class="btn-secondary"><i class="fa-solid fa-envelope"></i> <span>Email Us</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                backToTop.classList.toggle('visible', window.scrollY > 300);
+            }, { passive: true });
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Counter animation
+            const counters = document.querySelectorAll('.stat-number[data-count]');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.dataset.count);
+                        const duration = 2000;
+                        const start = performance.now();
+                        function animate(now) {
+                            const progress = Math.min((now - start) / 2000, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            el.textContent = Math.floor(target * eased).toLocaleString();
+                            if (progress < 1) requestAnimationFrame(animate);
+                        }
+                        requestAnimationFrame(animate);
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(c => counterObserver.observe(c));
+        });
+    </script>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("header.html").then(r => r.text()).then(html => {
+            const placeholder = document.getElementById("header-placeholder");
+            if (placeholder) {
+                placeholder.outerHTML = html;
+                const container = document.createElement("div");
+                container.innerHTML = html;
+                const scripts = container.querySelectorAll("script");
+                scripts.forEach(s => {
+                    const ns = document.createElement("script");
+                    if (s.src) ns.src = s.src;
+                    else ns.textContent = s.textContent;
+                    document.head.appendChild(ns);
+                });
+            }
+        });
+    </script>
+    <script>fetch("footer.html").then(r => r.text()).then(html => { document.getElementById("footer-placeholder").outerHTML = html; });</script>
+</body>
+</html>
+
+
+

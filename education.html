@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Education Portfolio | FlyLense Media Partner</title>
+    <meta name="description" content="Explore FlyLense Media Partner's educational video portfolio including promotional videos, concept ads, social media reels, and client work for schools and institutions.">
+    <link rel="icon" type="image/png" sizes="50x50" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img,
+        video,
+        svg,
+        iframe {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        :root {
+            --bg-deep: #030508;
+            --bg-card: #080d14;
+            --bg-card-hover: #0d141e;
+            --bg-elevated: #101822;
+            --border-subtle: #1a2230;
+            --border-light: #223044;
+            --border-accent: #2a3a52;
+            --accent: #0066cc;
+            --accent-light: #0080ff;
+            --accent-dark: #004d99;
+            --accent-gradient: linear-gradient(135deg, #0052a3 0%, #0066cc 50%, #0080ff 100%);
+            --accent-gradient-soft: linear-gradient(135deg, rgba(0, 82, 163, 0.15) 0%, rgba(0, 128, 255, 0.08) 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #d4dbe5;
+            --text-muted: #8b9ab0;
+            --text-dim: #5a6e85;
+            --white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.7);
+            --shadow-accent: 0 10px 40px rgba(0, 102, 204, 0.25);
+            --shadow-accent-strong: 0 20px 60px rgba(0, 102, 204, 0.35);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 100px;
+            --nav-height: 80px;
+            --max-width: 1152px;
+            --container-padding: 2rem;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #030508;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-light);
+        }
+
+        /* FLOATING SOCIAL */
+        .floating-social {
+            position: fixed;
+            bottom: 30px;
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .floating-social-left { left: 24px; }
+        .floating-social-right { right: 24px; }
+
+        .floating-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .floating-social a:hover {
+            transform: scale(1.12) translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 102, 204, 0.35);
+        }
+
+        .floating-social a .tooltip {
+            position: absolute;
+            background: var(--bg-elevated);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .floating-social a:hover .tooltip { opacity: 1; }
+        .floating-social-left a .tooltip { left: 70px; top: 50%; transform: translateY(-50%); }
+        .floating-social-right a .tooltip { right: 70px; top: 50%; transform: translateY(-50%); }
+
+        .social-instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+        }
+
+        .social-whatsapp { background: #25D366; }
+
+        .social-instagram::after,
+        .social-whatsapp::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            animation: pulse-ring 2.5s ease-out infinite;
+            opacity: 0;
+        }
+
+        .social-instagram::after { border: 2px solid #fd5949; }
+        .social-whatsapp::after { border: 2px solid #25D366; }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        @media (max-width: 576px) {
+            .floating-social a { width: 48px; height: 48px; font-size: 1.1rem; }
+            .floating-social { gap: 10px; }
+            .floating-social-left { left: 16px; }
+            .floating-social-right { right: 16px; }
+            .floating-social a .tooltip { display: none; }
+        }
+
+        /* NAVBAR */
+       .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--nav-height);
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: 1px solid transparent;
+            transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s, box-shadow 0.4s, height 0.4s;
+            will-change: background, backdrop-filter, box-shadow, border-color, height;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s, box-shadow 0.4s, height 0.4s;
+        }
+
+        .navbar.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navbar.scrolled {
+            height: 88px;
+            background: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .navbar-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            z-index: 1001;
+            flex-shrink: 0;
+            transition: transform var(--transition-bounce);
+        }
+
+        .nav-logo:hover { transform: scale(1.04); }
+
+        .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+        .nav-logo img.logo-title { height: 48px; }
+
+        .navbar.scrolled .nav-logo img { filter: brightness(1) invert(0); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.55rem 1.2rem;
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+
+        .navbar.scrolled .nav-links a { color: rgba(255, 255, 255, 0.85); }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: width var(--transition-smooth);
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before { width: 60%; }
+
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a.active { color: var(--white); font-weight: 600; }
+
+        .nav-links li.dropdown { position: relative; }
+        .nav-links .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.55rem 1.2rem;
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        .nav-links .dropdown-toggle::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.7rem;
+            transition: transform var(--transition-fast);
+        }
+        .nav-links li.dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+        .nav-links .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-elevated);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all var(--transition-smooth);
+            z-index: 1001;
+            padding: 0.5rem 0;
+            margin-top: 8px;
+        }
+        .nav-links li.dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-links .dropdown-menu a {
+            display: block;
+            padding: 0.7rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            border-radius: 0;
+            white-space: nowrap;
+        }
+        .nav-links .dropdown-menu a:hover {
+            background: rgba(6, 102, 204, 0.08);
+            color: var(--white);
+            padding-left: 1.8rem;
+        }
+
+        .nav-cta {
+            background: var(--accent-gradient);
+            color: #030508 !important;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-accent);
+            transition: all var(--transition-bounce);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-accent-strong);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: transform var(--transition-bounce), background var(--transition-fast);
+        }
+
+        .hamburger:hover { background: rgba(255, 255, 255, 0.05); }
+        .hamburger:active { transform: scale(0.95); }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); width: 28px; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-12px) scale(0.5); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); width: 28px; }
+
+        .menu-backdrop {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s;
+            backdrop-filter: blur(4px);
+        }
+
+        .menu-backdrop.active { opacity: 1; visibility: visible; }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 360px;
+            max-width: 90%;
+            height: 100vh;
+            background: var(--bg-deep);
+            z-index: 999;
+            padding: 100px 2.5rem 2rem;
+            transition: right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow-y: auto;
+            box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+            border-left: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu.active { right: 0; }
+
+        .mobile-menu::-webkit-scrollbar { width: 3px; }
+        .mobile-menu::-webkit-scrollbar-track { background: transparent; }
+        .mobile-menu::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 1rem 1.2rem;
+            border-radius: var(--radius-md);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+            background: rgba(6, 102, 204, 0.08);
+            border-left-color: var(--accent);
+            transform: translateX(6px);
+        }
+
+        .mobile-menu a.active { color: var(--accent); font-weight: 600; background: rgba(6, 102, 204, 0.1); border-left-color: var(--accent); }
+
+        .mobile-dropdown { position: relative; }
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 1rem 1.2rem;
+            border-radius: var(--radius-md);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .mobile-dropdown-toggle:hover { color: var(--accent); background: rgba(6, 102, 204, 0.08); }
+        .mobile-dropdown-toggle i { transition: transform 0.3s; }
+        .mobile-dropdown-toggle.active i { transform: rotate(180deg); }
+        .mobile-dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .mobile-dropdown-menu a {
+            font-size: 0.95rem;
+            padding: 0.75rem 1.5rem;
+            border-left: none;
+            margin-left: 1rem;
+        }
+        .mobile-dropdown-menu a:hover { border-left-color: var(--accent); padding-left: 1.5rem; }
+
+        .mobile-cta {
+            background: var(--accent-gradient);
+            color: #030508 !important;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-full);
+            text-align: center;
+            margin-top: 1rem;
+            box-shadow: var(--shadow-accent);
+        }
+        .mobile-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--shadow-accent-strong); }
+
+        .menu-divider { width: 50px; height: 2px; background: var(--accent-gradient); border-radius: 2px; margin: 0.5rem 0 1.5rem; transition: width var(--transition-smooth); }
+        .mobile-menu.active .menu-divider { width: 80px; }
+
+        .menu-footer { display: none; }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            height: auto;
+            padding: calc(var(--nav-height) + 2rem) 0 2rem;
+            overflow: hidden;
+            background: var(--bg-deep);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.25;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(3, 5, 8, 0.4) 0%, rgba(3, 5, 8, 0.8) 60%, #030508 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 40vh;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 102, 204, 0.15);
+            border: 1px solid rgba(0, 102, 204, 0.3);
+            padding: 10px 20px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        .hero-badge i { animation: pulse-accent 2s ease-in-out infinite; }
+
+        @keyframes pulse-accent {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
+        }
+
+        .hero h1 .highlight {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: accentShift 4s ease-in-out infinite;
+        }
+
+        @keyframes accentShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero .lead {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 880px;
+            margin-bottom: 3.5rem;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: -110%;
+            left: 47%;
+            z-index: 10;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both, bounce 2s ease-in-out 1.5s infinite;
+        }
+
+        .hero-scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color var(--transition-fast);
+        }
+
+        .hero-scroll-indicator a:hover { color: var(--accent); }
+
+        .hero-scroll-indicator i {
+            font-size: 1.3rem;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%,
+            100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-gradient);
+            color: #030508 !important;
+            padding: 1rem 2.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-accent);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0350a8 0%, #0666cc 50%, #3d9bff 100%);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-accent-strong);
+            gap: 14px;
+        }
+
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary span { position: relative; z-index: 1; }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            font-size: 1rem;
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(6, 102, 204, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION COMMONS */
+        .section {
+            padding: 6rem var(--container-padding);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .section-tag::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 1px;
+            background: var(--accent-gradient);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* REVEAL ANIMATIONS */
+        .reveal { opacity: 0; transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.revealed { opacity: 1; }
+        .reveal-up { transform: translateY(50px); }
+        .reveal-up.revealed { transform: translateY(0); }
+        .reveal-left { transform: translateX(-50px); }
+        .reveal-left.revealed { transform: translateX(0); }
+        .reveal-right { transform: translateX(50px); }
+        .reveal-right.revealed { transform: translateX(0); }
+        .reveal-scale { transform: scale(0.9); }
+        .reveal-scale.revealed { transform: scale(1); }
+        .delay-1 { transition-delay: 0.05s; }
+        .delay-2 { transition-delay: 0.1s; }
+        .delay-3 { transition-delay: 0.15s; }
+        .delay-4 { transition-delay: 0.2s; }
+        .delay-5 { transition-delay: 0.25s; }
+        .delay-6 { transition-delay: 0.3s; }
+        .delay-7 { transition-delay: 0.35s; }
+        .delay-8 { transition-delay: 0.4s; }
+
+         /* ── VIDEO SHOWCASE BAR ── */
+        .video-showcase {
+            background: var(--bg-deep);
+        }
+        .video-bar-wrapper {
+            width: 100%;
+            position: relative;
+            padding: 10px 0 20px;
+        }
+        .video-bar-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+        .video-bar-nav:hover {
+            color: var(--accent);
+            transform: translateY(-50%) scale(1.2);
+        }
+        .video-bar-nav.prev {
+            left: 1rem;
+        }
+        .video-bar-nav.next {
+            right: 1rem;
+        }
+        @media (max-width: 768px) {
+            .video-bar-nav {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Shadow hover zones - arrows appear based on scroll position */
+        .video-bar-track-container::before,
+        .video-bar-track-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .video-bar-track-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);
+        }
+        .video-bar-track-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(0,0,0,0.4), transparent);
+        }
+        
+        /* Show left arrow when scrolled right, right arrow when not at end */
+        .video-bar-track-container.scrolled-right .video-bar-nav.prev,
+        .video-bar-track-container:hover .video-bar-nav.prev {
+            opacity: 1;
+            visibility: visible;
+        }
+        .video-bar-track-container:not(.at-end) .video-bar-nav.next,
+        .video-bar-track-container:hover .video-bar-nav.next {
+            opacity: 1;
+            visibility: visible;
+        }
+        .video-bar-nav:hover {
+            color: var(--accent);
+            transform: translateY(-50%) scale(1.2);
+        }
+        .video-bar-nav.prev {
+            left: 1rem;
+        }
+        .video-bar-nav.next {
+            right: 1rem;
+        }
+        @media (max-width: 768px) {
+            .video-bar-nav {
+                font-size: 2rem;
+            }
+        }
+        
+        .video-bar-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            padding: 0 2rem 1rem;
+            will-change: transform;
+        }
+        .video-bar-track-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        .video-bar-track-container::-webkit-scrollbar {
+            display: none;
+        }
+        .video-bar-track .video-card {
+            flex: 0 0 auto;
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0;
+            overflow: hidden;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+        .video-bar-track .video-card.portrait {
+            width: 290px;
+            aspect-ratio: 9 / 16;
+        }
+        .video-bar-track .video-card.cinematic {
+            width: 1030px;
+            aspect-ratio: 1920 / 1080;
+        }
+        .video-bar-track .video-card:hover {
+            transform: translateY(-4px);
+        }
+        .video-bar-track .video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #000;
+            border-radius: 0;
+        }
+        .video-bar-track .video-card video:-webkit-full-screen,
+        .video-bar-track .video-card video:fullscreen {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: contain !important;
+            background: #000 !important;
+        }
+        .video-bar-track .video-card video:-webkit-full-screen::backdrop,
+        .video-bar-track .video-card video::backdrop {
+            background: #000;
+        }
+        .video-bar-track .video-card .video-play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            z-index: 3;
+            pointer-events: auto;
+            cursor: pointer;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity var(--transition-fast);
+        } 
+        .video-bar-track .video-card .video-play-btn.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .video-bar-track .video-card .video-play-btn i {
+            font-size: 3.5rem;
+            color: whitesmoke;
+            /*background: rgba(255, 255, 255, 0.15);*/
+            /*backdrop-filter: blur(4px);*/
+            /*border-radius: 50%;*/
+            padding: 14px 16px 14px 18px;
+            /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);*/
+            transition: transform var(--transition-bounce), background var(--transition-fast);
+            /*border: 1px solid rgba(255, 255, 255, 0.3);*/
+        }
+        .video-bar-track .video-card:hover .video-play-btn i {
+            transform: scale(1.1);
+            /*background: rgba(255, 255, 255, 0.25);*/
+        }
+        .video-bar-track .video-card.playing .video-play-btn {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .video-bar-track .video-card.playing video {
+            pointer-events: auto;
+        }
+        .video-bar-track .video-card .video-label {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            right: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .video-bar-track .video-card .video-duration {
+            position: absolute;
+            bottom: 0.75rem;
+            right: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-sm);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .section-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .section-header-bar h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+        .section-header-bar h3 span {
+            color: var(--accent);
+            margin: 0 8px;
+            font-weight: 300;
+        }
+        .section-header-bar a {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+        .section-header-bar a:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        /* ===== CLIENT LOGOS - CIRCLE CROP ===== */
+        .clients-section {
+            background: var(--bg-deep);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 3rem 0;
+        }
+
+        .brand-marquee-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .brand-marquee {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .brand-marquee::before,
+        .brand-marquee::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 150px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .brand-marquee::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--bg-deep) 0%, transparent 100%);
+        }
+
+        .brand-marquee::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--bg-deep) 0%, transparent 100%);
+        }
+
+        .brand-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 40s linear infinite;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .brand-track:hover { animation-play-state: paused; }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .brand-item {
+            flex: 0 0 auto;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all var(--transition-smooth);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+        }
+        .brand-item:hover { transform: scale(1.08); border-color: var(--accent); box-shadow: var(--shadow-accent); }
+        .brand-item img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform var(--transition-smooth), filter var(--transition-smooth);
+            filter: brightness(0.85) saturate(0.8);
+        }
+        .brand-item:hover img { transform: scale(1.05); filter: brightness(1) saturate(1); }
+
+        @media (max-width: 768px) {
+            .brand-item { width: 90px; height: 90px; }
+            .brand-marquee::before, .brand-marquee::after { width: 60px; }
+            .brand-track { gap: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .brand-item { width: 72px; height: 72px; }
+            .brand-track { gap: 1rem; }
+        }
+
+        /* ===== SOCIAL MANAGEMENT - NO HOVER ===== */
+        .insta-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: auto;
+            transition: transform var(--transition-smooth);
+            /*aspect-ratio: 9 / 16;*/
+        }
+
+        .insta-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CTA BANNER */
+        .cta-section { background: var(--bg-deep); padding: 4rem var(--container-padding); }
+
+        .cta-banner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(6, 102, 204, 0.12) 0%, rgba(3, 5, 8, 0.9) 100%);
+            border: 1px solid rgba(6, 102, 204, 0.2);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 3.5rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -30%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(6, 102, 204, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -50%; left: -30%;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(6, 102, 204, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-content { position: relative; z-index: 2; max-width: 600px; }
+        .cta-content h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; }
+        .cta-content h2 span { background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .cta-content p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; }
+
+        .cta-actions { position: relative; z-index: 2; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        @media (max-width: 768px) {
+            .cta-banner { padding: 2rem; text-align: center; }
+            .cta-content { max-width: 100%; }
+            .cta-actions { justify-content: center; }
+        }
+
+        /* FOOTER */
+        .footer {
+            position: relative;
+            background: #030303;
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem var(--container-padding) 2rem;
+            overflow: hidden;
+            clear: both;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('img/1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.04;
+            z-index: 0;
+        }
+
+        .footer-inner {
+            position: relative;
+            z-index: 1;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+        }
+
+        .footer-brand .logo { height: 44px; margin-bottom: 1.5rem; }
+
+        .footer-brand p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 300px; }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-smooth);
+        }
+
+        .footer-social a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(6, 102, 204, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .footer-social a.instagram:hover {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+            border-color: transparent;
+            color: var(--white);
+        }
+
+        .footer-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--accent-gradient);
+            transition: width var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 16px;
+        }
+
+        .footer-links a:hover::before { width: 10px; }
+
+        .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .contact-item i {
+            width: 20px;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .contact-item a { color: var(--text-muted); transition: color var(--transition-fast); }
+        .contact-item a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { color: var(--text-dim); font-size: 0.85rem; }
+
+        .footer-bottom-links { display: flex; gap: 2rem; }
+        .footer-bottom-links a { color: var(--text-dim); font-size: 0.8rem; transition: color var(--transition-fast); }
+        .footer-bottom-links a:hover { color: var(--accent); }
+
+        @media (max-width: 1024px) {
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+            .footer-brand .logo { margin: 0 auto 1.5rem; }
+            .footer-brand p { max-width: 100%; margin: 0 auto 1.5rem; }
+            .footer-social { justify-content: center; }
+            .footer-links a::before { display: none; }
+            .footer-links a:hover { padding-left: 0; }
+            .contact-item { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* RESPONSIVE NAVBAR */
+        @media (max-width: 768px) {
+            :root { --nav-height: 64px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .navbar.scrolled { height: 72px; }
+            .hero { min-height: 50vh; padding: calc(var(--nav-height) + 1.5rem) 0 1.5rem; }
+            .section { padding: 4rem 1.5rem; }
+            .cta-banner { padding: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-video-bg { position: absolute; top: -10%; left: 0; }
+            :root { --container-padding: 1.25rem; }
+            .hero-badge { display: none; }
+            .btn-primary, .btn-secondary { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+            .nav-logo img { height: 32px; }
+            .nav-logo img.logo-title { height: 28px; }
+            .cta-content h2 { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            #social-management .reveal[style*="grid-template-columns"] { grid-template-columns: repeat(2, 1fr) !important; }
+            .video-bar-track .video-card.portrait { width: 140px; }
+            .video-bar-track .video-card.cinematic { width: calc(630px * 1.3); max-width: 92vw; }
+        }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 52px;
+            height: 52px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            cursor: pointer;
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-smooth);
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { background: var(--accent-gradient); color: #050505; border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-accent); }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Floating Social -->
+    <div class="floating-social floating-social-left">
+        <a href="https://www.instagram.com/flylensemediapartner/" target="_blank" class="social-instagram" aria-label="Follow us on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="tooltip">Follow on Instagram</span>
+        </a>
+    </div>
+
+    <div class="floating-social floating-social-right">
+        <a href="https://wa.me/919989571223" target="_blank" class="social-whatsapp" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="tooltip">Chat on WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/thumbnails/Global.png">
+            <source src="assets/Videos/Education/Global .mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> Education Portfolio</div>
+            <h1 class="hero-h1">Education <span class="highlight">Excellence</span></h1>
+            <p class="lead">From campus films to admission reels, we help institutions showcase their unique identity, academic rigor, and student success stories through cinematic storytelling.</p>
+            <div class="hero-cta-group">
+                <a href="#reels" class="btn-secondary"><i class="fa-solid fa-clapperboard"></i> <span>View Reels</span></a>
+                <a href="#cinematic" class="btn-secondary"><i class="fa-solid fa-film"></i> <span>Cinematic Films</span></a>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <div class="hero-scroll-indicator">
+        <a href="#reels"><i class="fa-solid fa-chevron-down"></i><span>Explore</span></a>
+    </div>
+
+    <!-- ===== REELS FOR SOCIAL MEDIA (Horizontal Scroll Bar) ===== -->
+    <section class="section video-showcase" id="portrait-videos">
+    <div class="section-inner">
+        <div class="section-header-bar reveal reveal-up">
+            <h3>Our Latest Reels <span>|</span> <a href="portfolio.html">Watch All</a></h3>
+        </div>
+        <div class="video-bar-wrapper reveal reveal-up delay-1">
+            <button class="video-bar-nav prev" id="portraitPrev" aria-label="Previous reel"><i class="bi bi-chevron-compact-left"></i></button>
+            <button class="video-bar-nav next" id="portraitNext" aria-label="Next reel"><i class="bi bi-chevron-compact-right"></i></button>
+            <div class="video-bar-track-container">
+                <div class="video-bar-track" id="portraitTrack">
+
+                    <!-- Card 1: Code.in Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Code.in_Video_04.mp4" data-poster="assets/thumbnails/Code.in_Video_04.png" data-title="Code.in Reel" data-duration="0:30" data-category="Academy">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Code.in_Video_04.png">
+                            <source src="assets/Videos/Education/Code.in_Video_04.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Code.in Reel</span>
+                        <span class="video-duration">0:30</span>
+                    </div>
+
+                    <!-- Card 2: Full Stack Academy Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Full_Stack_Reel.mp4" data-poster="assets/thumbnails/Full_Stack_Reel.png" data-title="Full Stack Academy Reel" data-duration="0:25" data-category="Academy">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Full_Stack_Reel.png">
+                            <source src="assets/Videos/Education/Full_Stack_Reel.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Full Stack Academy Reel</span>
+                        <span class="video-duration">0:25</span>
+                    </div>
+
+                    <!-- Card 3: Global School Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Global .mp4" data-poster="assets/thumbnails/Global.png" data-title="Global School Reel" data-duration="0:35" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Global.png">
+                            <source src="assets/Videos/Education/Global .mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Global School Reel</span>
+                        <span class="video-duration">0:35</span>
+                    </div>
+
+                    <!-- Card 4: VIP's Muay Thai Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/MUAY THAI CHAMPIONSHIP AT VIP'SSTRENGTH, SKILL & SPIRITAt VIP's   International School, we believe.mp4" data-poster="assets/thumbnails/MUAY THAI CHAMPIONSHIP AT VIP'S STRENGTH, SKILL & SPIRIT.png" data-title="VIP's Muay Thai Reel" data-duration="0:28" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/MUAY THAI CHAMPIONSHIP AT VIP'S STRENGTH, SKILL & SPIRIT.png">
+                            <source src="assets/Videos/Education/MUAY THAI CHAMPIONSHIP AT VIP'SSTRENGTH, SKILL & SPIRITAt VIP's   International School, we believe.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">VIP's Muay Thai Reel</span>
+                        <span class="video-duration">0:28</span>
+                    </div>
+
+                    <!-- Card 5: Saritha Reel 06 -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Saritha Reel_06.mp4" data-poster="assets/thumbnails/Saritha Reel_06.png" data-title="Saritha Reel 06" data-duration="0:32" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Saritha Reel_06.png">
+                            <source src="assets/Videos/Education/Saritha Reel_06.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Saritha Reel 06</span>
+                        <span class="video-duration">0:32</span>
+                    </div>
+
+                    <!-- Card 6: Silver Crest Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Silver Crest Reel 01.mp4" data-poster="assets/thumbnails/Silver Crest Reel 01.png" data-title="Silver Crest Reel" data-duration="0:27" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Silver Crest Reel 01.png">
+                            <source src="assets/Videos/Education/Silver Crest Reel 01.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Silver Crest Reel</span>
+                        <span class="video-duration">0:27</span>
+                    </div>
+
+                    <!-- Card 7: Success Podcast Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Success_Podcast_Reel_03.mp4" data-poster="assets/thumbnails/Success_Podcast_Reel_03.png" data-title="Success Podcast Reel" data-duration="0:33" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Success_Podcast_Reel_03.png">
+                            <source src="assets/Videos/Education/Success_Podcast_Reel_03.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Success Podcast Reel</span>
+                        <span class="video-duration">0:33</span>
+                    </div>
+
+                    <!-- Card 8: Unique Reel -->
+                    <div class="video-card portrait" data-video="assets/Videos/Education/Unique Reel.mp4" data-poster="assets/thumbnails/Unique Reel.png" data-title="Unique Reel" data-duration="0:30" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Unique Reel.png">
+                            <source src="assets/Videos/Education/Unique Reel.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Unique Reel</span>
+                        <span class="video-duration">0:30</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== CINEMATIC FILMS SECTION (Horizontal Scroll Bar) ===== -->
+   <section class="section video-showcase" id="landscape-videos">
+    <div class="section-inner">
+        <div class="section-header-bar reveal reveal-up">
+            <h3>Cinematic Films <span>|</span> <a href="portfolio.html">Watch All</a></h3>
+        </div>
+        <div class="video-bar-wrapper reveal reveal-up delay-1">
+            <button class="video-bar-nav prev" id="landscapePrev" aria-label="Previous film"><i class="bi bi-chevron-compact-left"></i></button>
+            <button class="video-bar-nav next" id="landscapeNext" aria-label="Next film"><i class="bi bi-chevron-compact-right"></i></button>
+            <div class="video-bar-track-container">
+                <div class="video-bar-track" id="landscapeTrack">
+
+                    <!-- Card 1: Oakridge Promo Film -->
+                    <div class="video-card cinematic" data-video="assets/Videos/Landscape/Oakridge_Promo_Video_01.mp4" data-poster="assets/thumbnails/Oakridge_Promo_Video_01.png" data-title="Oakridge Promo Film" data-duration="2:15" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Oakridge_Promo_Video_01.png">
+                            <source src="assets/Videos/Landscape/Oakridge_Promo_Video_01.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Oakridge Promo Film</span>
+                        <span class="video-duration">2:15</span>
+                    </div>
+
+                    <!-- Card 2: Springfield Trailer -->
+                    <div class="video-card cinematic" data-video="assets/Videos/Landscape/Springfield_Trailer_01.mp4" data-poster="assets/thumbnails/Springfield_Trailer_01.png" data-title="Springfield Trailer" data-duration="1:45" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Springfield_Trailer_01.png">
+                            <source src="assets/Videos/Landscape/Springfield_Trailer_01.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Springfield Trailer</span>
+                        <span class="video-duration">1:45</span>
+                    </div>
+
+                    <!-- Card 3: VIP's Cinematic Ad -->
+                    <div class="video-card cinematic" data-video="assets/Videos/Landscape/Vip's_Trailer_Video_02.mp4" data-poster="assets/thumbnails/Vip's_Trailer_Video_02.png" data-title="VIP's Cinematic Ad" data-duration="3:00" data-category="School">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Vip's_Trailer_Video_02.png">
+                            <source src="assets/Videos/Landscape/Vip's_Trailer_Video_02.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">VIP's Cinematic Ad</span>
+                        <span class="video-duration">3:00</span>
+                    </div>
+
+                    <!-- Card 4: Success Sports Carnival -->
+                    <div class="video-card cinematic" data-video="assets/Videos/Landscape/Success_Sports_Carnival_Reel_01.mp4" data-poster="assets/thumbnails/Success_Sports_Carnival_Reel_01.png" data-title="Success Sports Carnival" data-duration="2:30" data-category="Events">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/Success_Sports_Carnival_Reel_01.png">
+                            <source src="assets/Videos/Landscape/Success_Sports_Carnival_Reel_01.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                        <span class="video-label">Success Sports Carnival</span>
+                        <span class="video-duration">2:30</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== SOCIAL MEDIA MANAGEMENT ===== -->
+    <section class="section" id="social-management">
+        <div class="section-inner">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Social Media Management</span>
+                <h2 class="section-title">Professional Social Media Management</h2>
+                <p class="section-subtitle">Complete digital presence management for educational institutions</p>
+            </div>
+
+            <div class="reveal reveal-up delay-1" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                <div class="insta-item">
+                   <a href="https://www.instagram.com/global_techno_schools/"> <img src="assets/mockups/1.png" alt="Code.in Social Media"></a>
+                </div>
+                <div class="insta-item">
+                    <img src="img/icons/2.avif" alt="Full Stack Academy Social Media">
+                </div>
+                <div class="insta-item">
+                    <img src="img/icons/3.avif" alt="Global School Social Media">
+                </div>
+                <div class="insta-item">
+                    <img src="img/icons/4.avif" alt="Saritha School Social Media">
+                </div>
+            </div>
+
+            <div class="reveal reveal-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
+                    We build a strong social media presence that enhances brand visibility, strengthens customer trust, and creates meaningful engagement. Through strategic brand positioning and audience-focused communication, we help businesses establish a credible and impactful digital identity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS SECTION ===== -->
+    <section class="clients-section" id="clients">
+        <div class="section-inner">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Our Happy Clients</span>
+                <h2 class="section-title">Trusted by Leading Educational Institutions</h2>
+                <p class="section-subtitle">50+ schools, colleges, and universities across India</p>
+            </div>
+
+            <div class="brand-marquee-container">
+                <div class="brand-marquee">
+                    <div class="brand-track" id="marqueeTrack1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-section">
+        <div class="cta-banner">
+            <div class="cta-content reveal reveal-left">
+                <h2>Ready to Elevate Your <span>Institution's Story?</span></h2>
+                <p>Let's create compelling visual content that showcases your academic excellence and attracts the right students.</p><br>
+                <div class="cta-actions">
+                    <a href="https://wa.me/919989571223" target="_blank" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> <span>Discuss Project</span></a>
+                    <a href="mailto:hello@flylense.com" class="btn-secondary"><i class="fa-solid fa-envelope"></i> <span>Email Us</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- ============================================================ -->
+    <!-- JAVASCRIPT                                                   -->
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ===================== REVEAL OBSERVER =====================
+            var revealObserver = window.revealObserver || new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            window.revealObserver = revealObserver;
+
+            // ===================== DATA =====================
+            var cinematicData = [
+                { id: 1, title: "Oakridge Promo Film", video: "assets/Videos/Landscape/Oakridge_Promo_Video_01.mp4", thumb: "assets/thumbnails/Oakridge_Promo_Video_01.png", duration: "2:15", category: "School" },
+                { id: 2, title: "Springfield Trailer", video: "assets/Videos/Landscape/Springfield_Trailer_01.mp4", thumb: "assets/thumbnails/Springfield_Trailer_01.png", duration: "1:45", category: "School" },
+                { id: 3, title: "VIP's Cinematic Ad", video: "assets/Videos/Landscape/Vip's_Trailer_Video_02.mp4", thumb: "assets/thumbnails/Vip's_Trailer_Video_02.png", duration: "3:00", category: "School" },
+                { id: 4, title: "Success Sports Carnival", video: "assets/Videos/Landscape/Success_Sports_Carnival_Reel_01.mp4", thumb: "assets/thumbnails/Success_Sports_Carnival_Reel_01.png", duration: "2:30", category: "Events" }
+            ];
+
+            var reelsData = [
+                { id: 1, title: "Code.in Reel", video: "assets/Videos/Education/Code.in_Video_04.mp4", thumb: "assets/thumbnails/Code.in_Video_04.png", duration: "0:30", category: "Academy" },
+                { id: 2, title: "Full Stack Academy Reel", video: "assets/Videos/Education/Full_Stack_Reel.mp4", thumb: "assets/thumbnails/Full_Stack_Reel.png", duration: "0:25", category: "Academy" },
+                { id: 3, title: "Global School Reel", video: "assets/Videos/Education/Global .mp4", thumb: "assets/thumbnails/Global.png", duration: "0:35", category: "School" },
+                { id: 4, title: "VIP's Muay Thai Reel", video: "assets/Videos/Education/MUAY THAI CHAMPIONSHIP AT VIP'SSTRENGTH, SKILL & SPIRITAt VIP's   International School, we believe.mp4", thumb: "assets/thumbnails/MUAY THAI CHAMPIONSHIP AT VIP'S STRENGTH, SKILL & SPIRIT.png", duration: "0:28", category: "School" },
+                { id: 5, title: "Saritha Reel 06", video: "assets/Videos/Education/Saritha Reel_06.mp4", thumb: "assets/thumbnails/Saritha Reel_06.png", duration: "0:32", category: "School" },
+                { id: 6, title: "Silver Crest Reel", video: "assets/Videos/Education/Silver Crest Reel 01.mp4", thumb: "assets/thumbnails/Silver Crest Reel 01.png", duration: "0:27", category: "School" },
+                { id: 7, title: "Success Podcast Reel", video: "assets/Videos/Education/Success_Podcast_Reel_03.mp4", thumb: "assets/thumbnails/Success_Podcast_Reel_03.png", duration: "0:33", category: "School" },
+                { id: 8, title: "Unique Reel", video: "assets/Videos/Education/Unique Reel.mp4", thumb: "assets/thumbnails/Unique Reel.png", duration: "0:30", category: "School" }
+            ];
+
+            var educationClients = [
+                { name: "3rd Expo", logo: "assets/Logos/Education/3nd expo logo.jpg" },
+                { name: "4th Expo", logo: "assets/Logos/Education/4th expo logo.jpg" },
+                { name: "AKSHRS Academy", logo: "assets/Logos/Education/akshrs logo.jpg" },
+                { name: "Brightfield School", logo: "assets/Logos/Education/brirhtfield logo.jpg" },
+                { name: "Dawn School", logo: "assets/Logos/Education/dawn school logo.jpg" },
+                { name: "Expo", logo: "assets/Logos/Education/expo logo.jpg" },
+                { name: "Focus School", logo: "assets/Logos/Education/focus logo.jpg" },
+                { name: "Full Stack Academy", logo: "assets/Logos/Education/full stack academy logo.jpg" },
+                { name: "GEMS School", logo: "assets/Logos/Education/gems logo.jpg" },
+                { name: "Global School", logo: "assets/Logos/Education/global logo.jpg" },
+                { name: "Hyderabad International School", logo: "assets/Logos/Education/hyderabad international school logo.jpg" },
+                { name: "IZM School", logo: "assets/Logos/Education/izm logo.jpg" },
+                { name: "Jamiatul Muflihaat", logo: "assets/Logos/Education/jamiatul muflihaat logo.jpg" },
+                { name: "Laksh School", logo: "assets/Logos/Education/laksh logo.jpg" },
+                { name: "Hidiya School", logo: "assets/Logos/Education/logo hidiya.jpg" },
+                { name: "Sarita School", logo: "assets/Logos/Education/logo sarita.jpg" },
+                { name: "Master Mind", logo: "assets/Logos/Education/master mind logo.jpg" },
+                { name: "Moral Model School", logo: "assets/Logos/Education/moral model logo.jpg" },
+                { name: "MS Missions School", logo: "assets/Logos/Education/ms missios logo.jpg" },
+                { name: "Nobal School", logo: "assets/Logos/Education/nobal logo.jpg" },
+                { name: "Oakridge School", logo: "assets/Logos/Education/oakridge.jpg" },
+                { name: "Phoenix School", logo: "assets/Logos/Education/Phonix logo.jpg" },
+                { name: "Pro Dress School", logo: "assets/Logos/Education/prodress logo.jpg" },
+                { name: "Rainbow School", logo: "assets/Logos/Education/Rainbow School logo.jpg" },
+                { name: "Rockwoods School", logo: "assets/Logos/Education/Rockwoods logo.jpg" },
+                { name: "Shuja Grammar School", logo: "assets/Logos/Education/shuja grammer logo.jpg" },
+                { name: "Silver Crest School", logo: "assets/Logos/Education/silver crest logo.jpg" },
+                { name: "Spring Fields School", logo: "assets/Logos/Education/Spring Fields Logo.jpg" },
+                { name: "St. Joseph's School", logo: "assets/Logos/Education/st.joseph's.jpg" },
+                { name: "Success School", logo: "assets/Logos/Education/success logo.jpg" },
+                { name: "Unique Academy", logo: "assets/Logos/Education/unique logo.jpg" },
+                { name: "Vidvaniketan School", logo: "assets/Logos/Education/vidvaniketan logo.jpg" },
+                { name: "Vikas High School", logo: "assets/Logos/Education/vikas_high_school_logo.jpg" },
+                { name: "VIP's International School", logo: "assets/Logos/Education/Vip's logo.jpg" }
+            ];
+
+            // ===================== DOM REFS =====================
+            var reelsTrack = document.getElementById('reelsTrack');
+            var cinematicTrack = document.getElementById('cinematicTrack');
+            var marqueeTrack = document.getElementById('marqueeTrack1');
+
+            // ===================== REVEAL OBSERVER =====================
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            window.revealObserver = revealObserver;
+
+            // ===================== RENDER FUNCTIONS =====================
+
+            // Render Reels (horizontal track)
+            function renderReelsTrack() {
+                if (!reelsTrack) return;
+                var html = '';
+                reelsData.forEach(function(item, index) {
+                    html +=
+                        '<div class="video-card portrait" data-video="' + item.video + '" ' +
+                        'data-poster="' + item.thumb + '" data-title="' + item.title + '" data-duration="' + item.duration + '" data-category="' + item.category + '">' +
+                        '<video class="video-bg" playsinline preload="metadata" loop muted poster="' + item.thumb + '">' +
+                        '<source src="' + item.video + '" type="video/mp4">' +
+                        '</video>' +
+                        '<div class="video-play-btn"><i class="bi bi-play-circle"></i></div>' +
+                        '<span class="video-label">' + item.title + '</span>' +
+                        '<span class="video-duration">' + item.duration + '</span>' +
+                        '</div>';
+                });
+                reelsTrack.innerHTML = html;
+            }
+
+            // Render Cinematic Films (horizontal track)
+            function renderCinematicTrack() {
+                if (!cinematicTrack) return;
+                var html = '';
+                cinematicData.forEach(function(item, index) {
+                    html +=
+                        '<div class="video-card cinematic" data-video="' + item.video + '" ' +
+                        'data-poster="' + item.thumb + '" data-title="' + item.title + '" data-duration="' + item.duration + '" data-category="' + item.category + '">' +
+                        '<video class="video-bg" playsinline preload="metadata" loop muted poster="' + item.thumb + '">' +
+                        '<source src="' + item.video + '" type="video/mp4">' +
+                        '</video>' +
+                        '<div class="video-play-btn"><i class="bi bi-play-circle"></i></div>' +
+                        '<span class="video-label">' + item.title + '</span>' +
+                        '<span class="video-duration">' + item.duration + '</span>' +
+                        '</div>';
+                });
+                cinematicTrack.innerHTML = html;
+            }
+
+            // Render Marquee
+            function renderMarquee() {
+                if (!marqueeTrack) return;
+                var items = '';
+                educationClients.forEach(function(client) {
+                    items += '<div class="brand-item"><img src="' + client.logo + '" alt="' + client.name + '" loading="lazy"></div>';
+                });
+                marqueeTrack.innerHTML = items + items;
+            }
+
+            // ===================== FORCE REVEAL FALLBACK =====================
+            function forceRevealFallback() {
+                document.querySelectorAll('.reveal:not(.revealed)').forEach(function(el) {
+                    el.classList.add('revealed');
+                });
+            }
+
+            // ===================== VIDEO PLAY / PAUSE (inline, matches index.html) =====================
+            function pauseAllInlineVideos() {
+                document.querySelectorAll('.video-card video.video-bg').forEach(v => {
+                    if (!v.paused) {
+                        v.pause();
+                        v.removeAttribute('controls');
+                        v.muted = true;
+                        var card = v.closest('.video-card');
+                        var btn = card ? card.querySelector('.video-play-btn') : null;
+                        if (btn) btn.classList.remove('hidden');
+                        if (card) card.classList.remove('playing');
+                    }
+                });
+            }
+            // ── VIDEO BAR NAVIGATION ──
+            function setupVideoBarNav(trackId, prevId, nextId) {
+                const track = document.getElementById(trackId);
+                const container = track ? track.closest('.video-bar-track-container') : null;
+                const prevBtn = document.getElementById(prevId);
+                const nextBtn = document.getElementById(nextId);
+                console.log('Setting up nav for:', trackId, prevId, nextId, track, prevBtn, nextBtn);
+                if (!track || !container || !prevBtn || !nextBtn) {
+                    console.warn('Missing elements for:', trackId, prevId, nextId);
+                    return;
+                }
+                
+                const scrollAmount = 1030; // card width + gap
+                
+                prevBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+                
+                // Update button visibility based on scroll position
+                const updateButtons = () => {
+                    const maxScroll = container.scrollWidth - container.clientWidth;
+                    const scrolledRight = container.scrollLeft > 10;
+                    const atEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10;
+                    
+                    // Left arrow: show when scrolled right
+                    prevBtn.style.opacity = container.scrollLeft > 10 ? '1' : '0';
+                    prevBtn.style.visibility = container.scrollLeft > 10 ? 'visible' : 'hidden';
+                    prevBtn.style.pointerEvents = container.scrollLeft > 10 ? 'auto' : 'none';
+                    
+                    // Right arrow: hide when at end
+                    nextBtn.style.opacity = !atEnd ? '1' : '0';
+                    nextBtn.style.visibility = !atEnd ? 'visible' : 'hidden';
+                    nextBtn.style.pointerEvents = !atEnd ? 'auto' : 'none';
+                };
+                
+                container.addEventListener('scroll', updateButtons);
+                updateButtons(); // Initial check
+            }
+            
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    setupVideoBarNav('portraitTrack', 'portraitPrev', 'portraitNext');
+                    setupVideoBarNav('landscapeTrack', 'landscapePrev', 'landscapeNext');
+                });
+            } else {
+                setupVideoBarNav('portraitTrack', 'portraitPrev', 'portraitNext');
+                setupVideoBarNav('landscapeTrack', 'landscapePrev', 'landscapeNext');
+            }
+
+            document.addEventListener('click', function(e) {
+                var video = e.target.closest('.video-card video.video-bg');
+                if (!video) return;
+                var card = video.closest('.video-card');
+                var btn = card ? card.querySelector('.video-play-btn') : null;
+
+                if (video.paused) {
+                    pauseAllInlineVideos();
+                    if (btn) btn.classList.add('hidden');
+                    video.setAttribute('controls', '');
+                    video.muted = false;
+                    if (card) card.classList.add('playing');
+                    video.play().catch(() => {
+                        if (btn) btn.classList.remove('hidden');
+                        video.removeAttribute('controls');
+                        video.muted = true;
+                        if (card) card.classList.remove('playing');
+                    });
+                } else {
+                    video.pause();
+                    video.removeAttribute('controls');
+                    video.muted = true;
+                    if (card) card.classList.remove('playing');
+                    if (btn) btn.classList.remove('hidden');
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                var btn = e.target.closest('.video-play-btn');
+                if (!btn) return;
+                e.stopPropagation();
+                var card = btn.closest('.video-card');
+                if (!card) return;
+                var video = card.querySelector('video.video-bg');
+                if (!video) return;
+                pauseAllInlineVideos();
+                btn.classList.add('hidden');
+                video.setAttribute('controls', '');
+                video.muted = false;
+                card.classList.add('playing');
+                video.play().catch(() => {
+                    btn.classList.remove('hidden');
+                    card.classList.remove('playing');
+                });
+            });
+
+            // ===================== LAZY LOAD VIDEO POSTERS =====================
+            var lazyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        var video = entry.target;
+                        var src = video.dataset.src;
+                        if (src) {
+                            var source = video.querySelector('source');
+                            if (source && !source.src) {
+                                source.src = src;
+                                video.load();
+                            }
+                        }
+                        lazyObserver.unobserve(video);
+                    }
+                });
+            }, { rootMargin: '200px' });
+            document.querySelectorAll('video[data-src]').forEach(v => lazyObserver.observe(v));
+
+            // ===================== HERO VIDEO AUTOPLAY =====================
+            var heroVideo = document.querySelector('.hero-video-bg');
+            if (heroVideo) {
+                heroVideo.muted = true;
+                heroVideo.play().catch(function() {
+                    heroVideo.removeAttribute('autoplay');
+                });
+            }
+
+            // ===================== NAVBAR =====================
+            var navbar = document.getElementById('navbar');
+            if (navbar) {
+                navbar.classList.add('loaded');
+            }
+
+            window.addEventListener('scroll', function() {
+                var backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }
+                if (navbar) {
+                    if (window.scrollY > 20) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            }, { passive: true });
+
+            // Back to top
+            var backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ===================== MOBILE MENU =====================
+            var hamburger = document.getElementById('hamburger');
+            var menuBackdrop = document.getElementById('menuBackdrop');
+            var mobileMenu = document.getElementById('mobileMenu');
+
+            function toggleMenu() {
+                if (!hamburger || !menuBackdrop || !mobileMenu) return;
+                var isActive = hamburger.classList.toggle('active');
+                menuBackdrop.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', isActive);
+                document.body.style.overflow = isActive ? 'hidden' : '';
+            }
+
+            if (hamburger) {
+                hamburger.addEventListener('click', toggleMenu);
+            }
+            if (menuBackdrop) {
+                menuBackdrop.addEventListener('click', toggleMenu);
+            }
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a:not(.mobile-dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (mobileMenu.classList.contains('active')) toggleMenu();
+                    });
+                });
+            }
+
+            var mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+            var mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+            if (mobileDropdownToggle && mobileDropdownMenu) {
+                mobileDropdownToggle.addEventListener('click', function() {
+                    var isOpen = mobileDropdownToggle.classList.toggle('active');
+                    mobileDropdownMenu.style.maxHeight = isOpen ? mobileDropdownMenu.scrollHeight + 'px' : '0';
+                });
+            }
+
+            // ===================== OBSERVE STATIC REVEALS =====================
+            document.querySelectorAll('.reveal:not(.video-card)').forEach(function(el) {
+                revealObserver.observe(el);
+            });
+
+            // ===================== RENDER ALL =====================
+            renderReelsTrack();
+            renderCinematicTrack();
+            renderMarquee();
+
+            // ===================== FALLBACKS =====================
+            setTimeout(forceRevealFallback, 1500);
+            window.addEventListener('load', function() {
+                setTimeout(forceRevealFallback, 300);
+            });
+
+            // Re-render if any section is empty
+            setTimeout(function() {
+                var needsRender = false;
+                if (reelsTrack && reelsTrack.children.length === 0) needsRender = true;
+                if (cinematicTrack && cinematicTrack.children.length === 0) needsRender = true;
+                if (marqueeTrack && marqueeTrack.children.length === 0) needsRender = true;
+                if (needsRender) {
+                    renderReelsTrack();
+                    renderCinematicTrack();
+                    renderMarquee();
+                    setTimeout(forceRevealFallback, 200);
+                }
+            }, 800);
+
+            console.log('✅ Education Portfolio – all sections rendered and visible.');
+        })();
+    </script>
+
+    <!-- ===== HEADER & FOOTER LOADER ===== -->
+    <script>
+        fetch("header.html")
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+                var placeholder = document.getElementById("header-placeholder");
+                if (placeholder) {
+                    placeholder.outerHTML = html;
+                    var nav = document.getElementById('navbar');
+                    if (nav && !nav.classList.contains('loaded')) {
+                        nav.classList.add('loaded');
+                    }
+                }
+            })
+            .catch(function() {});
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+                var placeholder = document.getElementById("footer-placeholder");
+                if (placeholder) {
+                    placeholder.outerHTML = html;
+                }
+            })
+            .catch(function() {});
+    </script>
+</body>
+</html>

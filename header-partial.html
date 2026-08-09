@@ -1,0 +1,51 @@
+<nav class="navbar" id="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="nav-logo">
+            <img src="img/logo.png" alt="FlyLense Logo" class="logo-icon">
+            <img src="img/title.png" alt="FlyLense" class="logo-title">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" data-page="index">Home</a></li>
+            <li><a href="about.html" data-page="about">About</a></li>
+            <li class="dropdown">
+                <a href="portfolio.html" class="dropdown-toggle" data-page="portfolio">Portfolio</a>
+                <div class="dropdown-menu">
+                    <a href="education.html" data-page="education">Education</a>
+                    <a href="jewellery.html" data-page="jewellery">Jewellery</a>
+                    <a href="food.html" data-page="food">Food & Restaurants</a>
+                </div>
+            </li>
+            <li><a href="industry.html" data-page="industry">Industries</a></li>
+            <li><a href="blogs.html" data-page="blogs">Blogs</a></li>
+            <li><a href="contact.html" data-page="contact">Let's Connect</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Backdrop -->
+<div class="menu-backdrop" id="menuBackdrop"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" data-page="index">Home</a>
+    <a href="about.html" data-page="about">About</a>
+    <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle">Portfolio <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="mobile-dropdown-menu">
+            <a href="education.html" data-page="education">Education</a>
+            <a href="jewellery.html" data-page="jewellery">Jewellery</a>
+            <a href="food.html" data-page="food">Food & Restaurants</a>
+        </div>
+    </div>
+    <a href="industry.html" data-page="industry">Industries</a>
+    <a href="blogs.html" data-page="blogs">Blogs</a>
+    <a href="contact.html" class="mobile-cta" data-page="contact">Let's Connect</a>
+    <div class="menu-divider"></div>
+    <div class="menu-footer">
+        <span>&copy; 2026 FlyLense Media Partner</span>
+        <span>Crafting Cinematic Stories</span>
+    </div>
+</div>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>FlyLense | Insights & Stories — Cinematic Perspectives for Creators & Brands</title>
+    <meta name="description" content="Explore insights, tips, and stories for creators and brands from FlyLense Media Production." />
+    <link rel="icon" type="image/png" sizes="50x50" href="img/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* ── RESET & BASE (matching header.html design system) ── */
+       *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img,
+        video,
+        svg,
+        iframe {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        :root {
+            --bg-deep: #030508;
+            --bg-card: #080d14;
+            --bg-card-hover: #0d141e;
+            --bg-elevated: #101822;
+            --border-subtle: #1a2230;
+            --border-light: #223044;
+            --border-accent: #2a3a52;
+            --accent: #0066cc;
+            --accent-light: #0080ff;
+            --accent-dark: #004d99;
+            --accent-gradient: linear-gradient(135deg, #0052a3 0%, #0066cc 50%, #0080ff 100%);
+            --accent-gradient-soft: linear-gradient(135deg, rgba(0, 82, 163, 0.15) 0%, rgba(0, 128, 255, 0.08) 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #d4dbe5;
+            --text-muted: #8b9ab0;
+            --text-dim: #5a6e85;
+            --white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.7);
+            --shadow-accent: 0 10px 40px rgba(0, 102, 204, 0.25);
+            --shadow-accent-strong: 0 20px 60px rgba(0, 102, 204, 0.35);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 100px;
+            --nav-height: 80px;
+            --max-width: 1152px;
+            --container-padding: 2rem;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #030508;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-light);
+        }
+
+
+        /* ── REVEAL ANIMATIONS ── */
+        .reveal { opacity: 0; transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.revealed { opacity: 1; }
+        .reveal-up { transform: translateY(50px); }
+        .reveal-up.revealed { transform: translateY(0); }
+        .reveal-left { transform: translateX(-50px); }
+        .reveal-left.revealed { transform: translateX(0); }
+        .reveal-right { transform: translateX(50px); }
+        .reveal-right.revealed { transform: translateX(0); }
+        .reveal-scale { transform: scale(0.9); }
+        .reveal-scale.revealed { transform: scale(1); }
+        .delay-1 { transition-delay: 0.05s; }
+        .delay-2 { transition-delay: 0.1s; }
+        .delay-3 { transition-delay: 0.15s; }
+        .delay-4 { transition-delay: 0.2s; }
+        .delay-5 { transition-delay: 0.25s; }
+        .delay-6 { transition-delay: 0.3s; }
+        .delay-7 { transition-delay: 0.35s; }
+        .delay-8 { transition-delay: 0.4s; }
+
+        /* ── PAGE HERO (like food.html, jewellery.html) ── */
+        .page-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-deep);
+            padding: calc(var(--nav-height) + 4rem) var(--container-padding) 4rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 80% at 50% 30%, rgba(0, 102, 204, 0.1) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.6) 50%, #050505 100%);
+            z-index: 1;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('img/3.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            z-index: 0;
+        }
+        .page-hero .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .page-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 102, 204, 0.12);
+            border: 1px solid rgba(6, 102, 204, 0.25);
+            padding: 10px 20px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;  
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+        .page-hero h1 { 
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(4.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 1rem;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
+        }
+        .page-hero h1 .highlight {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: accentShift 4s ease-in-out infinite;
+        }
+        @keyframes accentShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .page-hero .lead {
+            widd
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ── HERO SCROLL INDICATOR (from index.html) ── */
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both, bounce 2s ease-in-out 1.5s infinite;
+        }
+        .hero-scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color var(--transition-fast);
+        }
+        .hero-scroll-indicator a:hover { color: var(--accent); }
+        .hero-scroll-indicator i { font-size: 1.3rem; animation: bounce 1.5s ease-in-out infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ── SECTION COMMONS ── */
+        .section { padding: 4rem var(--container-padding); position: relative; overflow: hidden; }
+        .section-inner { max-width: var(--max-width); margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; position: relative; padding-left: 30px; }
+        .section-tag::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 22px; height: 1px; background: var(--accent-gradient); }
+        .section-title { font-family: 'Poppins', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.15; }
+        .section-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 620px; margin: 0 auto; line-height: 1.7; }
+
+        /* ── BLOG GRID ── */
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1300px; margin: 0 auto; }
+        .blog-card { background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); transition: all var(--transition-smooth); display: flex; flex-direction: column; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-elevated); border-color: var(--accent); }
+
+        .blog-card-video { position: relative; width: 100%; aspect-ratio: 16/9; background: #0a0a0f; overflow: hidden; cursor: pointer; }
+        .blog-card-video .video-thumbnail { width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; background: var(--bg-card); }
+        .blog-card-video .video-thumbnail img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .blog-card-video:hover .video-thumbnail img { transform: scale(1.05); }
+        .blog-card-video .play-btn-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: rgba(0, 0, 0, 0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 2; pointer-events: none; }
+        .blog-card-video:hover .play-btn-overlay { background: var(--accent); transform: translate(-50%, -50%) scale(1.1); border-color: var(--accent); box-shadow: 0 0 40px rgba(0, 102, 204, 0.5); }
+        .blog-card-video .video-iframe-wrap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; z-index: 3; }
+        .blog-card-video .video-iframe-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+        .blog-card-video.playing .video-thumbnail { display: none; }
+        .blog-card-video.playing .video-iframe-wrap { display: block; }
+        .blog-card-video .video-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--bg-card); color: var(--text-muted); font-size: 0.9rem; flex-direction: column; gap: 0.5rem; }
+        .blog-card-video .video-placeholder i { font-size: 3rem; color: var(--accent); opacity: 0.5; }
+
+        .blog-card-content { padding: 1.5rem 1.5rem 2rem; flex: 1; display: flex; flex-direction: column; }
+        .blog-card-content .cat-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; color: #fff; background: var(--accent-gradient); padding: 0.25rem 1rem; border-radius: 50px; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; align-self: flex-start; }
+        .blog-card-content h4 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-primary); line-height: 1.3; }
+        .blog-card-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem; flex: 1; }
+        .blog-card-content a { font-weight: 600; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: gap var(--transition-fast); align-self: flex-start; }
+        .blog-card-content a:hover { gap: 0.7rem; color: var(--accent-light); }
+
+        /* ── CTA BANNER (like other pages) ── */
+        .cta-section { background: var(--bg-deep); padding: 5rem var(--container-padding); }
+        .cta-banner {
+            max-width: var(--max-width); margin: 0 auto;
+            background: linear-gradient(135deg, rgba(6, 102, 204, 0.12) 0%, rgba(5, 5, 5, 0.9) 100%);
+            border: 1px solid rgba(6, 102, 204, 0.2); border-radius: var(--radius-xl);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 3rem 3.5rem; flex-wrap: wrap; gap: 2rem;
+            position: relative; overflow: hidden;
+        }
+        .cta-banner::before { content: ''; position: absolute; top: -50%; right: -30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(6, 102, 204, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+        .cta-banner::after { content: ''; position: absolute; bottom: -50%; left: -30%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(6, 102, 204, 0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+        .cta-content { position: relative; z-index: 2; max-width: 600px; }
+        .cta-content h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.5rem; }
+        .cta-content h2 span { background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .cta-content p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; }
+        .cta-actions { position: relative; z-index: 2; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-gradient); color: #050505 !important; padding: 1rem 2.2rem; border-radius: var(--radius-full); font-weight: 600; font-size: 1rem; text-decoration: none; box-shadow: var(--shadow-accent); transition: all var(--transition-bounce); position: relative; overflow: hidden; }
+        .btn-primary::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #0350a8 0%, #0666cc 50%, #3d9bff 100%); opacity: 0; transition: opacity var(--transition-smooth); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: var(--shadow-accent-strong); gap: 14px; }
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary span { position: relative; z-index: 1; }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #fff; padding: 1rem 2.2rem; border-radius: var(--radius-full); font-weight: 500; font-size: 1rem; border: 1px solid var(--border-light); transition: all var(--transition-smooth); }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: rgba(6, 102, 204, 0.08); transform: translateY(-2px); }
+
+        /* ════════════════════════════════════════════ */
+        /* ── RESPONSIVE STYLES ── */
+        /* ════════════════════════════════════════════ */
+
+        @media (max-width: 1024px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --nav-height: 64px; }
+            .page-hero { min-height: 50vh; padding: calc(var(--nav-height) + 3rem) 1.5rem 3rem; }
+            .section { padding: 4rem 1.5rem; }
+            .section-title { font-size: 1.6rem; }
+            .section-header { margin-bottom: 2.5rem; }
+            .section-tag { padding-left: 0; }
+            .section-tag::before { display: none; }
+            .blog-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .blog-card-content { padding: 1.2rem 1rem 1.5rem; }
+            .blog-card-content h4 { font-size: 1rem; }
+            .blog-card-content p { font-size: 0.85rem; }
+            .blog-card-video .play-btn-overlay { width: 50px; height: 50px; font-size: 1.2rem; }
+            .cta-banner { padding: 2rem; text-align: center; }
+            .cta-content { max-width: 100%; }
+            .cta-actions { justify-content: center; }
+            .hero-scroll-indicator { display: none; }
+        }
+
+        @media (max-width: 576px) {
+            :root { --container-padding: 1.25rem; }
+            .page-hero { min-height: 45vh; padding: calc(var(--nav-height) + 2rem) 1.25rem 2rem; }
+            .btn-primary, .btn-secondary { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+            .blog-grid { grid-template-columns: 1fr 1fr !important; gap: 0.8rem; max-width: 100%; }
+            .blog-card-content { padding: 0.8rem 0.8rem 1rem !important; }
+            .blog-card-content h4 { font-size: 0.9rem !important; }
+            .blog-card-content p { font-size: 0.8rem !important; display: none; }
+            .blog-card-content .cat-tag { font-size: 0.55rem; padding: 0.15rem 0.6rem; margin-bottom: 0.5rem; }
+            .blog-card-video .play-btn-overlay { width: 40px; height: 40px; font-size: 0.9rem; }
+            .blog-card-content a { font-size: 0.8rem; }
+            .cta-banner { flex-direction: column !important; text-align: center !important; padding: 1.5rem !important; border-radius: var(--radius-md); }
+            .cta-banner-text h2 { font-size: 1.3rem !important; }
+            .cta-banner-text h4 { font-size: 1rem !important; }
+            .btn-primary, .btn-secondary { padding: 0.75rem 1.2rem !important; font-size: 0.85rem !important; }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero { min-height: 40vh; }
+            .blog-grid { grid-template-columns: 1fr 1fr !important; gap: 0.6rem; }
+            .blog-card-content { padding: 0.6rem 0.6rem 0.8rem !important; }
+            .blog-card-content h4 { font-size: 0.8rem !important; }
+            .blog-card-content p { font-size: 0.75rem !important; display: none; }
+            .blog-card-content a { font-size: 0.7rem; }
+            .blog-card-content .cat-tag { font-size: 0.5rem; padding: 0.1rem 0.5rem; }
+            .blog-card-video .play-btn-overlay { width: 36px; height: 36px; font-size: 0.8rem; }
+            .cta-banner { padding: 1.2rem !important; }
+        }
+
+        @media (max-width: 360px) {
+            .blog-grid { grid-template-columns: 1fr !important; gap: 0.5rem; }
+            .blog-card-content p { display: block; font-size: 0.75rem !important; }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div class="floating-social floating-social-left">
+        <a href="https://www.instagram.com/flylensemediapartner/" target="_blank" class="social-instagram" aria-label="Follow us on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="tooltip">Follow on Instagram</span>
+        </a>
+    </div>
+    <div class="floating-social floating-social-right">
+        <a href="https://wa.me/919989571223" target="_blank" class="social-whatsapp" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="tooltip">Chat on WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- ── PAGE HERO (like food.html, jewellery.html) ── -->
+    <section class="page-hero" id="home">
+        <div class="hero-content reveal reveal-up">
+            <div class="hero-badge"><i class="fa-solid fa-book-open"></i> FlyLense Insights</div>
+            <h1>Expert Guides for <span class="highlight">Creators & Brands</span></h1>
+            <p class="lead">Learn cinematic techniques, video marketing strategies, and storytelling frameworks from our 8+ years of production experience.</p>
+        </div>
+        <!-- Scroll indicator from index.html -->
+        
+    </section><br>
+    <div class="hero-scroll-indicator">
+            <a href="#creators"><i class="fa-solid fa-chevron-down"></i><span>Explore</span></a>
+        </div><br><br>
+
+    <!-- ── SECTION 1: BLOGS FOR CREATORS (6 Blogs) ── -->
+    <section class="section" id="creators">
+        <div class="section">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Creative Minds</span>
+                <h2 class="section-title">Blogs for Creators</h2>
+                <p class="section-subtitle">Elevate your craft. Explore in-depth guides on cinematography, drone piloting, editing, and visual storytelling.</p>
+            </div>
+            <div class="blog-grid">
+
+                <!-- Blog 1: Lighting -->
+                <div class="blog-card reveal reveal-up delay-1">
+    <div class="blog-card-video" data-video-id="0suVZjz3_Uw">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/0suVZjz3_Uw/maxresdefault.jpg"
+                 alt="Mastering Lighting thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/0suVZjz3_Uw?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Creators</span>
+        <h4>Mastering Lighting: The Secret to Cinematic Shots</h4>
+        <p>Discover the essential lighting techniques that separate amateur footage from professional, high-end cinematography.</p>
+        <a href="blog1.html">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 2: Drone -->
+                <div class="blog-card reveal reveal-up delay-1">
+    <div class="blog-card-video" data-video-id="278IRQ6HSi4">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/278IRQ6HSi4/maxresdefault.jpg"
+                 alt="Drone Cinematography thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/278IRQ6HSi4?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Creators</span>
+        <h4>Drone Filmmaking: 5 Tips for Epic Aerial Shots</h4>
+        <p>Take your aerial footage to the next level with expert techniques for cinematic FPV flying, smooth camera movement, and breathtaking aerial compositions.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 3: 3D Camera -->
+                <div class="blog-card reveal reveal-up delay-2">
+    <div class="blog-card-video" data-video-id="zgMHWFolli8">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/zgMHWFolli8/maxresdefault.jpg"
+                 alt="3D Camera Techniques thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/zgMHWFolli8?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Creators</span>
+        <h4>Mastering 3D Camera Techniques in After Effects</h4>
+        <p>Learn cinematic 3D camera movement, depth, parallax, and professional motion graphics techniques to create visually stunning videos.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 4: Camera Movement -->
+                <div class="blog-card reveal reveal-up delay-3">
+    <div class="blog-card-video" data-video-id="gMRr6ej8lEE">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/gMRr6ej8lEE/maxresdefault.jpg"
+                 alt="Camera Movement thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/gMRr6ej8lEE?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Creators</span>
+        <h4>Dynamic Camera Movement for Storytelling</h4>
+        <p>Learn professional camera movement techniques that add depth, emotion, and cinematic quality to every shot using smooth and purposeful motion.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 5: Transitions -->
+                <div class="blog-card reveal reveal-up delay-4">
+    <div class="blog-card-video" data-video-id="1La4QzGeaaQ">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/1La4QzGeaaQ/maxresdefault.jpg"
+                 alt="Cinematic Transitions thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/1La4QzGeaaQ?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Creators</span>
+        <h4>Create Seamless Cinematic Transitions</h4>
+        <p>Learn how to create smooth, professional transitions that naturally connect scenes and keep your audience engaged throughout your film.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 6: Storytelling -->
+                <div class="blog-card reveal reveal-up delay-5">
+    <div class="blog-card-video" data-video-id="KVBc2Pg81rw">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/KVBc2Pg81rw/maxresdefault.jpg"
+                 alt="Cinematic Storytelling thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/KVBc2Pg81rw?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Creators</span>
+        <h4>Cinematic Storytelling: Create Films That Connect</h4>
+        <p>Learn how professional filmmakers use composition, pacing, camera movement, and emotion to turn ordinary footage into compelling cinematic stories.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 2: BLOGS FOR BRANDS (6 Blogs) ── -->
+    <section class="section" id="brands">
+        <div class="section">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Brand Growth</span>
+                <h2 class="section-title">Blogs for Brands</h2>
+                <p class="section-subtitle">Elevate your market presence. Learn how effective video marketing and storytelling build lasting consumer connections.</p>
+            </div>
+            <div class="blog-grid">
+
+                <!-- Blog 7: Branding Basics -->
+                <div class="blog-card reveal reveal-up delay-1">
+    <div class="blog-card-video" data-video-id="sO4te2QNsHY">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/sO4te2QNsHY/maxresdefault.jpg"
+                 alt="Branding Basics thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i><span>Preview unavailable</span>
+            </div>
+            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <div class="video-iframe-wrap">
+            <iframe src="https://www.youtube.com/embed/sO4te2QNsHY?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Brands</span>
+        <h4>Branding 101: Build a Brand People Remember</h4>
+        <p>Understand the fundamentals of branding and learn how strong brand identity creates trust, recognition, and lasting customer relationships.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 8: Social Reels -->
+                <div class="blog-card reveal reveal-up delay-2">
+    <div class="blog-card-video" data-video-id="_GohNBxyMPk">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/_GohNBxyMPk/maxresdefault.jpg"
+                 alt="Social Media Marketing thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i><span>Preview unavailable</span>
+            </div>
+            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <div class="video-iframe-wrap">
+            <iframe src="https://www.youtube.com/embed/_GohNBxyMPk?autoplay=1&rel=0"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Brands</span>
+        <h4>Grow Your Brand with Social Media Marketing</h4>
+        <p>Discover proven strategies to create engaging content, increase reach, and convert followers into loyal customers.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 9: Corporate Video -->
+                <div class="blog-card reveal reveal-up delay-3">
+    <div class="blog-card-video" data-video-id="fNxjNFiwxiA">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/fNxjNFiwxiA/maxresdefault.jpg"
+                 alt="Corporate Video thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i><span>Preview unavailable</span>
+            </div>
+            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <div class="video-iframe-wrap">
+            <iframe src="https://www.youtube.com/embed/fNxjNFiwxiA?autoplay=1&rel=0"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Brands</span>
+        <h4>Corporate Videos That Inspire Trust</h4>
+        <p>Learn how professional corporate videos strengthen company culture, improve communication, and enhance brand credibility.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 10: Video Marketing ROI -->
+                <div class="blog-card reveal reveal-up delay-4">
+    <div class="blog-card-video" data-video-id="U-InaQW0xe4">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/U-InaQW0xe4/maxresdefault.jpg"
+                 alt="Video Marketing thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i><span>Preview unavailable</span>
+            </div>
+            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <div class="video-iframe-wrap">
+            <iframe src="https://www.youtube.com/embed/U-InaQW0xe4?autoplay=1&rel=0"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Brands</span>
+        <h4>Video Marketing Strategies That Drive Sales</h4>
+        <p>Explore practical video marketing techniques to increase engagement, generate leads, and maximize your business growth.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 11: Brand Storytelling -->
+                <div class="blog-card reveal reveal-up delay-5">
+    <div class="blog-card-video" data-video-id="NeTJRCycYXQ">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/NeTJRCycYXQ/maxresdefault.jpg"
+                 alt="Storytelling Framework thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i>
+                <span>Preview unavailable</span>
+            </div>
+
+            <div class="play-btn-overlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+
+        <div class="video-iframe-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/NeTJRCycYXQ?autoplay=1&rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Brands</span>
+        <h4>The 5-Line Story Framework Every Brand Should Know</h4>
+        <p>Learn a simple storytelling framework that helps brands create compelling marketing videos, connect emotionally with audiences, and communicate their message with clarity.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+                <!-- Blog 12: Influencer Marketing -->
+                <div class="blog-card reveal reveal-up delay-6">
+    <div class="blog-card-video" data-video-id="3MwMII8n1qM">
+        <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/3MwMII8n1qM/maxresdefault.jpg"
+                 alt="Influencer Marketing thumbnail"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="video-placeholder" style="display:none;">
+                <i class="fa-solid fa-video"></i><span>Preview unavailable</span>
+            </div>
+            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <div class="video-iframe-wrap">
+            <iframe src="https://www.youtube.com/embed/3MwMII8n1qM?autoplay=1&rel=0"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="blog-card-content">
+        <span class="cat-tag">Brands</span>
+        <h4>Influencer Marketing That Builds Brand Authority</h4>
+        <p>Learn how successful influencer collaborations expand your reach, increase credibility, and turn audiences into loyal customers.</p>
+        <a href="#">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA BANNER (like other pages) ── -->
+    <section class="cta-section">
+        <div class="cta-banner reveal reveal-up">
+            <div class="cta-content">
+                <h2>Ready to <span>Elevate Your Content</span>?</h2>
+                <p>Whether you're a creator sharpening your skills or a brand scaling with video — let's create something remarkable together.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn-primary"><span>Start a Project</span><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="portfolio.html" class="btn-secondary"><i class="fa-solid fa-film"></i> View Our Work</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        // ── REVEAL OBSERVER (fallback if header not loaded yet) ──
+        var revealObserver = window.revealObserver || new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        window.revealObserver = revealObserver;
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            if (!el.classList.contains('revealed')) revealObserver.observe(el);
+        });
+
+        // ── VIDEO PLAY ON CLICK ──
+        document.querySelectorAll('.blog-card-video').forEach(function(wrapper) {
+            wrapper.addEventListener('click', function(e) {
+                if (this.classList.contains('playing')) return;
+                this.classList.add('playing');
+                var iframe = this.querySelector('.video-iframe-wrap iframe');
+                if (iframe) {
+                    var src = iframe.getAttribute('src');
+                    iframe.src = '';
+                    setTimeout(function() {
+                        iframe.src = src;
+                    }, 50);
+                }
+            });
+        });
+    </script>
+   <div id="footer-placeholder"></div>
+    <script>
+        fetch("header.html").then(r => r.text()).then(html => {
+            const placeholder = document.getElementById("header-placeholder");
+            if (placeholder) {
+                placeholder.outerHTML = html;
+                const container = document.createElement("div");
+                container.innerHTML = html;
+                const scripts = container.querySelectorAll("script");
+                scripts.forEach(s => {
+                    const ns = document.createElement("script");
+                    if (s.src) ns.src = s.src;
+                    else ns.textContent = s.textContent;
+                    document.head.appendChild(ns);
+                });
+            }
+        });
+    </script>
+    <script>fetch("footer.html").then(r => r.text()).then(html => { document.getElementById("footer-placeholder").outerHTML = html; });</script>
+</body>
+</html>
