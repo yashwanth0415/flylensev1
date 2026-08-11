@@ -1903,14 +1903,14 @@
             }];
 
             var foodClients = [
-                { name: "Barbeque Spice", logo: "assets/Logos/Food/barbi q spice logo.jpg" },
-                { name: "Tando's Grill", logo: "assets/Logos/Food/Tando's logo.jpg" },
-                { name: "Errababu", logo: "assets/Logos/Food/errababu logo.jpg" },
-                { name: "Khaja Sutad", logo: "assets/Logos/Food/khaja sutad logo.jpg" },
-                { name: "Master Choice", logo: "assets/Logos/Food/master choise logo.jpg" },
-                { name: "Strong Punch", logo: "assets/Logos/Food/strong punch logo.jpg" },
-                { name: "Tabar Spice", logo: "assets/Logos/Food/tabar spice logo.jpg" },
-                { name: "Barbeque Spice (Alt)", logo: "assets/Logos/Food/barbi q spice logo.jpg" }
+                { name: "Barbeque Spice", logo: "assets/Logos/Food/barbiq spice logo.png" },
+                { name: "Tando's Grill", logo: "assets/Logos/Food/tandos logo.png" },
+                { name: "Errababu", logo: "assets/Logos/Food/Errababu logo.png" },
+                { name: "Khaja Sutad", logo: "assets/Logos/Food/Tabar logo.png" },
+                { name: "Master Choice", logo: "assets/Logos/Food/master choise logo.png" },
+                { name: "Strong Punch", logo: "assets/Logos/Food/strong punch logo.png" },
+                { name: "Tabar Spice", logo: "assets/Logos/Food/Tabar logo.png" },
+                { name: "Barbeque Spice (Alt)", logo: "assets/Logos/Food/barbiq spice logo.png" },
             ];
 
             // ── DOM REFS ──
@@ -2187,10 +2187,7 @@
                 var placeholder = document.getElementById("header-placeholder");
                 if (placeholder) {
                     placeholder.outerHTML = html;
-                    var nav = document.getElementById('navbar');
-                    if (nav && !nav.classList.contains('loaded')) {
-                        nav.classList.add('loaded');
-                    }
+                    initNavbarScroll();
                 }
             })
             .catch(function() { console.warn('header.html not loaded — using inline fallback.'); });
@@ -2205,6 +2202,38 @@
                 }
             })
             .catch(function() { console.warn('footer.html not loaded — using inline fallback.'); });
+    </script>
+
+    <script>
+        function initNavbarScroll() {
+            var navbar = document.getElementById('navbar');
+            if (!navbar) return;
+
+            window.addEventListener('scroll', function() {
+                var backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }
+                if (navbar) {
+                    if (window.scrollY > 20) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            }, { passive: true });
+
+            var backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        }
     </script>
 </body>
 </html>

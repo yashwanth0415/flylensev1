@@ -2081,17 +2081,17 @@
             ];
 
             var jewelleryClients = [
-                { name: "Iqbal Jewellers", logo: "assets/Logos/Jewllers/iqbal logo.jpg" },
-                { name: "Nisar Jewellery", logo: "assets/Logos/Jewllers/nisar logo.jpg" },
-                { name: "IJ Jewellers", logo: "assets/Logos/Jewllers/ij logo.jpg" },
-                { name: "Maram Jewellery", logo: "assets/Logos/Jewllers/mamanram logo.jpg" },
-                { name: "SNJ Jewels", logo: "assets/Logos/Jewllers/sree nakoda jewllers logo.jpg" },
-                { name: "S-Craft", logo: "assets/Logos/Jewllers/s craft logo.jpg" },
-                { name: "Krishi Jewellers", logo: "assets/Logos/Jewllers/krishi logo.jpg" },
-                { name: "Nisar Jewellery (Alt)", logo: "assets/Logos/Jewllers/nisar logo.jpg" },
-                { name: "Royal Jewellers", logo: "assets/Logos/Jewllers/royal jewellerslogo.jpg" },
-                { name: "S-Craft Jewellery", logo: "assets/Logos/Jewllers/s craft logo.jpg" },
-                { name: "Tia Jewellers", logo: "assets/Logos/Jewllers/tia logo.jpg" }
+                { name: "Iqbal Jewellers", logo: "assets/Logos/Jewllers/iqbal logo.png" },
+                { name: "Nisar Jewellery", logo: "assets/Logos/Jewllers/nisar logo.png" },
+                { name: "IJ Jewellers", logo: "assets/Logos/Jewllers/IJ LOGO.png" },
+                { name: "Maram Jewellery", logo: "assets/Logos/Jewllers/mamaratam logo.png" },
+                { name: "SNJ Jewels", logo: "assets/Logos/Jewllers/sree nakoda jewlerry logo.png" },
+                { name: "S-Craft", logo: "assets/Logos/Jewllers/s craft logo.png" },
+                { name: "Krishi Jewellers", logo: "assets/Logos/Jewllers/krishdewels logo.png" },
+                { name: "Nisar Jewellery (Alt)", logo: "assets/Logos/Jewllers/nisar logo.png" },
+                { name: "Royal Jewellers", logo: "assets/Logos/Jewllers/royal logo.png" },
+                { name: "S-Craft Jewellery", logo: "assets/Logos/Jewllers/s craft logo.png" },
+                { name: "Tia Jewellers", logo: "assets/Logos/Jewllers/tia logo.png" },
             ];
 
             // ===================== DOM REFS =====================
@@ -2421,16 +2421,11 @@
                 var placeholder = document.getElementById("header-placeholder");
                 if (placeholder) {
                     placeholder.outerHTML = html;
-                    var nav = document.getElementById('navbar');
-                    if (nav && !nav.classList.contains('loaded')) {
-                        nav.classList.add('loaded');
-                    }
+                    initNavbarScroll();
                 }
             })
             .catch(function() {});
     </script>
-
-    <div id="footer-placeholder"></div>
     <script>
         fetch("footer.html")
             .then(function(r) { return r.text(); })
@@ -2441,6 +2436,38 @@
                 }
             })
             .catch(function() {});
+    </script>
+
+    <script>
+        function initNavbarScroll() {
+            var navbar = document.getElementById('navbar');
+            if (!navbar) return;
+
+            window.addEventListener('scroll', function() {
+                var backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }
+                if (navbar) {
+                    if (window.scrollY > 20) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            }, { passive: true });
+
+            var backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        }
     </script>
 </body>
 </html>

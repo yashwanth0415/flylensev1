@@ -272,7 +272,7 @@
 
         /* Industry Grid - 2 cards per row, wider cards */
         .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .industry-card { position: relative; border-radius: var(--radius-xl); overflow: hidden; background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all var(--transition-smooth); cursor: pointer; aspect-ratio: 16 / 10; }
+        .industry-card { width: 110%; position: relative;  overflow: hidden; background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all var(--transition-smooth); cursor: pointer; aspect-ratio: 16 / 10; }
         .industry-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.7) 100%); z-index: 1; transition: all var(--transition-smooth); }
         .industry-card:hover::before { background: linear-gradient(180deg, rgba(0, 102, 204, 0) 0%, rgba(3, 5, 8, 0.9) 100%); }
         .industry-card:hover { transform: translateY(-8px);  border-color: var(--border-light); }
@@ -280,8 +280,8 @@
         .industry-card:hover img { transform: scale(1.05); }
         .industry-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; z-index: 2; }
         .industry-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-        .industry-title { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 650; color: var(--white); margin-bottom: 0.5rem; text-align: center;}
-        .industry-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; text-align:center; }
+        .industry-title { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 450; color: var(--white); margin-bottom: 0.5rem; text-align: center;}
+        .industry-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; text-align:center; display: none;}
         .industry-link { display: none; }
 
         @media (max-width: 1024px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -449,80 +449,144 @@
         </div>
 
         <div class="industries-grid">
-            <article class="industry-card reveal reveal-up delay-1" onclick="location.href='education.html'">
-                <!-- 教育：更换为课堂授课场景，更贴合校园和教学主题 -->
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&crop=center" alt="Education Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Education</h3>
-                    <p class="industry-desc">Campus films, admission reels, and brand stories for schools, colleges, and ed-tech platforms.</p>
-                </div>
-            </article>
 
-            <article class="industry-card reveal reveal-up delay-2" onclick="location.href='jewellery.html'">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop&crop=center" alt="Jewellery Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Jewellery</h3>
-                    <p class="industry-desc">Luxury macro reels, collection launches, and heritage films for premium jewellery brands.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-3" onclick="location.href='food.html'">
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop&crop=center" alt="Food & Restaurant Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Food & Restaurants</h3>
-                    <p class="industry-desc">Sizzling kitchen close-ups, ambient dining films, and social reels for culinary brands.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-4" onclick="location.href='portfolio.html#real-estate'">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&crop=center" alt="Real Estate Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Real Estate</h3>
-                    <p class="industry-desc">Property showcases, aerial site tours, and architectural walkthroughs for developers.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-5" onclick="location.href='portfolio.html#healthcare'">
-                <!-- 医疗：更换为专业医生诊疗场景，体现关怀与科技感 -->
-                <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop&crop=center" alt="Healthcare Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Healthcare</h3>
-                    <p class="industry-desc">Patient stories, facility tours, and medical technology films for hospitals and clinics.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-6" onclick="location.href='portfolio.html#automotive'">
-                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop&crop=center" alt="Automotive Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Automotive</h3>
-                    <p class="industry-desc">Vehicle launches, test drive films, and dealership content for auto brands.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-7" onclick="location.href='portfolio.html#fashion'">
-                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop&crop=center" alt="Fashion & Lifestyle Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Fashion & Lifestyle</h3>
-                    <p class="industry-desc">Runway films, lookbooks, and influencer campaigns for apparel and beauty brands.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-8" onclick="location.href='portfolio.html#technology'">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center" alt="Technology Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Technology</h3>
-                    <p class="industry-desc">Product demos, explainer videos, and brand films for SaaS, apps, and tech startups.</p>
-                </div>
-            </article>
-
-            <article class="industry-card reveal reveal-up delay-9" onclick="location.href='portfolio.html#events'">
-                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop&crop=center" alt="Events & Entertainment Industry" loading="lazy">
-                <div class="industry-content">
-                    <h3 class="industry-title">Events & Entertainment</h3>
-                    <p class="industry-desc">Concert films, conference coverage, festival highlights, and live event production.</p>
-                </div>
-            </article>
+    <!-- Education -->
+    <article class="industry-card reveal reveal-up delay-1"
+        onclick="location.href='education.html'">
+        <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&h=600&fit=crop&crop=center"
+            alt="Indian students in classroom - Education Industry"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Education</h3>
+            <p class="industry-desc">
+                Campus films, admission reels, and brand stories for schools,
+                colleges, universities, and ed-tech platforms.
+            </p>
         </div>
+    </article>
+
+    <!-- Jewellery -->
+    <article class="industry-card reveal reveal-up delay-2">
+        <img
+            src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=900&h=600&fit=crop&crop=center"
+            alt="Indian gold jewellery collection - Jewellery Industry"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Jewellery</h3>
+            <p class="industry-desc">
+                Luxury macro reels, bridal collections, festive campaigns,
+                and heritage films for premium jewellery brands.
+            </p>
+        </div>
+    </article>
+
+    <!-- Food & Restaurants -->
+    <article class="industry-card reveal reveal-up delay-3">
+        <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&h=600&fit=crop&crop=center"
+            alt="Indian food and restaurant cuisine - Food Industry"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Food & Restaurants</h3>
+            <p class="industry-desc">
+                Sizzling kitchen close-ups, Indian cuisine films, ambient
+                dining visuals, and social reels for culinary brands.
+            </p>
+        </div>
+    </article>
+
+    <!-- Real Estate -->
+    <article class="industry-card reveal reveal-up delay-4">
+        <img
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900&h=600&fit=crop&crop=center"
+            alt="Modern Indian apartment and real estate property"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Real Estate</h3>
+            <p class="industry-desc">
+                Property showcases, luxury apartment films, aerial site tours,
+                and architectural walkthroughs for Indian developers.
+            </p>
+        </div>
+    </article>
+
+    <!-- Healthcare -->
+    <article class="industry-card reveal reveal-up delay-5">
+        <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=600&fit=crop&crop=center"
+            alt="Indian healthcare professional in hospital"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Healthcare</h3>
+            <p class="industry-desc">
+                Patient stories, hospital tours, doctor profiles, healthcare
+                campaigns, and medical technology films.
+            </p>
+        </div>
+    </article>
+
+    <!-- Automotive -->
+    <article class="industry-card reveal reveal-up delay-6">
+        <img
+            src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=900&h=600&fit=crop&crop=center"
+            alt="Premium automobile in Indian automotive showroom"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Automotive</h3>
+            <p class="industry-desc">
+                Vehicle launches, cinematic automobile films, test-drive
+                campaigns, and dealership content for auto brands.
+            </p>
+        </div>
+    </article>
+
+    <!-- Fashion & Lifestyle -->
+    <article class="industry-card reveal reveal-up delay-7">
+        <img
+            src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&h=600&fit=crop&crop=center"
+            alt="Indian fashion model wearing traditional clothing"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Fashion & Lifestyle</h3>
+            <p class="industry-desc">
+                Indian fashion campaigns, saree and ethnic wear shoots,
+                lookbooks, beauty campaigns, and influencer content.
+            </p>
+        </div>
+    </article>
+
+    <!-- Technology -->
+    <article class="industry-card reveal reveal-up delay-8">
+        <img
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=600&fit=crop&crop=center"
+            alt="Indian technology startup team working together"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Technology</h3>
+            <p class="industry-desc">
+                Product demos, SaaS explainers, app showcases, startup films,
+                corporate videos, and technology campaigns.
+            </p>
+        </div>
+    </article>
+
+    <!-- Events & Entertainment -->
+    <article class="industry-card reveal reveal-up delay-9">
+        <img
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&h=600&fit=crop&crop=center"
+            alt="Indian wedding and cultural event celebration"
+            loading="lazy">
+        <div class="industry-content">
+            <h3 class="industry-title">Events & Entertainment</h3>
+            <p class="industry-desc">
+                Wedding films, concerts, conferences, festivals, corporate
+                events, cultural celebrations, and live event production.
+            </p>
+        </div>
+    </article>
+
+</div>
     </div>
 </section>
 
