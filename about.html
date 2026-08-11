@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <style>
-        /* ── All styles remain exactly as provided ── */
+        /* ── All existing styles from the provided about page ── */
         *,
         *::before,
         *::after {
@@ -905,8 +906,6 @@
             transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /*.story-full-image:hover img { transform: scale(1.05); }*/
-
         .story-image-overlay {
             position: absolute;
             inset: 0;
@@ -1082,263 +1081,251 @@
             }
         }
 
-        /* ===== BTS ===== */
-        .bts-section { background: var(--bg-deep); position: relative; overflow: hidden; }
+        /* ===== BTS replaced with VIDEO BAR (from homepage) ===== */
 
-        .bts-section::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -30%;
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(0, 102, 204, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+        /* ── VIDEO SHOWCASE BAR (copied from homepage) ── */
+        .video-showcase {
+            background: var(--bg-deep);
         }
-
-        .bts-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .bts-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .bts-item {
+        .video-bar-wrapper {
+            width: 100%;
             position: relative;
-            aspect-ratio: 9 / 16;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            padding: 10px 0 20px;
+        }
+        .video-bar-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            color: #fff;
             cursor: pointer;
             transition: all var(--transition-smooth);
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+        .video-bar-nav:hover {
+            color: var(--accent);
+            transform: translateY(-50%) scale(1.2);
+        }
+        .video-bar-nav.prev {
+            left: 1rem;
+        }
+        .video-bar-nav.next {
+            right: 1rem;
+        }
+        @media (max-width: 768px) {
+            .video-bar-nav {
+                font-size: 2rem;
+            }
         }
 
-        .bts-item:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-accent);
-            border-color: var(--accent);
+        .video-bar-track-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            /*-webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);*/
+        }
+        .video-bar-track-container::-webkit-scrollbar {
+            display: none;
         }
 
-        .bts-item img {
+        /* Shadow hover zones - arrows appear based on scroll position */
+        .video-bar-track-container::before,
+        .video-bar-track-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .video-bar-track-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);
+        }
+        .video-bar-track-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(0,0,0,0.4), transparent);
+        }
+
+        .video-bar-track-container.scrolled-right .video-bar-nav.prev,
+        .video-bar-track-container:hover .video-bar-nav.prev {
+            opacity: 1;
+            visibility: visible;
+        }
+        .video-bar-track-container:not(.at-end) .video-bar-nav.next,
+        .video-bar-track-container:hover .video-bar-nav.next {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-bar-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            padding: 0 2rem 1rem;
+            will-change: transform;
+        }
+
+        .video-bar-track .video-card {
+            flex: 0 0 auto;
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0;
+            overflow: hidden;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+        .video-bar-track .video-card.portrait {
+            width: 265px;
+            aspect-ratio: 9 / 16;
+        }
+        .video-bar-track .video-card:hover {
+            transform: translateY(-4px);
+        }
+        .video-bar-track .video-card video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform var(--transition-smooth);
+            display: block;
+            background: #000;
+            border-radius: 0;
         }
-
-        .bts-item:hover img { transform: scale(1.08); }
-
-        .bts-overlay {
+        .video-bar-track .video-card video:-webkit-full-screen,
+        .video-bar-track .video-card video:fullscreen {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: contain !important;
+            background: #000 !important;
+        }
+        .video-bar-track .video-card video:-webkit-full-screen::backdrop,
+        .video-bar-track .video-card video::backdrop {
+            background: #000;
+        }
+        .video-bar-track .video-card .video-play-btn {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.8) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            background: transparent;
+            z-index: 3;
+            pointer-events: auto;
+            cursor: pointer;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity var(--transition-fast);
+        }
+        .video-bar-track .video-card .video-play-btn.hidden {
             opacity: 0;
-            transition: all var(--transition-smooth);
+            visibility: hidden;
+            pointer-events: none;
         }
-
-        .bts-item:hover .bts-overlay { opacity: 1; }
-
-        .bts-play-btn {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            color: #030508;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            box-shadow: var(--shadow-accent);
-            transform: scale(0.8);
-            transition: all var(--transition-bounce);
+        .video-bar-track .video-card .video-play-btn i {
+            font-size: 3.5rem;
+            color: whitesmoke;
+            padding: 14px 16px 14px 18px;
+            transition: transform var(--transition-bounce);
         }
-
-        .bts-item:hover .bts-play-btn { transform: scale(1); }
-
-        .bts-info {
+        .video-bar-track .video-card:hover .video-play-btn i {
+            transform: scale(1.1);
+        }
+        .video-bar-track .video-card.playing .video-play-btn {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .video-bar-track .video-card.playing video {
+            pointer-events: auto;
+        }
+        .video-bar-track .video-card .video-label {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 1.2rem 1rem 0.8rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(3, 5, 8, 0.95) 100%);
-        }
-
-        .bts-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            right: 0.75rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            pointer-events: none;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
-        .bts-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.65rem;
-            color: var(--text-muted);
-        }
-
-        .bts-meta i { color: var(--accent); }
-
-        @media (max-width: 1024px) {
-            .bts-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 576px) {
-            .bts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-        }
-        @media (max-width: 480px) {
-            .bts-grid { grid-template-columns: 1fr; }
-        }
-
-        /* ===== FOUNDERS ===== */
-        .founders { background: var(--bg-deep); position: relative; overflow: hidden; }
-
-        .founders-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .founder-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 5rem;
-        }
-/*
-        .founder-row:last-child { margin-bottom: 0; }
-        .founder-row:nth-child(even) { direction: rtl; }
-        .founder-row > * { direction: ltr; }*/
-
-        .founder-visual {
-            position: relative;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            aspect-ratio: 4 / 3;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-elevated);
-            transition: all var(--transition-smooth);
-            opacity: 0;
-            transform: translateX(-60px);
-            animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .founder-row:nth-child(even) .founder-visual {
-            animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-60px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(60px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .founder-visual:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-accent-strong);
-            border-color: var(--accent);
-        }
-
-        .founder-visual img { width: 100%; height: 100%; object-fit: cover; }
-
-        .founder-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            opacity: 0;
-            transform: translateX(60px);
-            animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-            animation-delay: 0.2s;
-        }
-
-        .founder-row:nth-child(even) .founder-info {
-            animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-            animation-delay: 0.2s;
-        }
-
-        .founder-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .founder-name .linkedin {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: #0077b5;
-            color: var(--white);
-            border-radius: var(--radius-sm);
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: all var(--transition-fast);
-        }
-
-        .founder-name .linkedin:hover {
-            transform: scale(1.1);
-            background: #006097;
-        }
-
-        .founder-role {
-            font-size: 1.1rem;
+        .video-bar-track .video-card .video-duration {
+            position: absolute;
+            bottom: 0.75rem;
+            right: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-sm);
+            z-index: 2;
+            pointer-events: none;
         }
-
-        .founder-bio {
-            font-size: 1.05rem;
+        .section-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .section-header-bar h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
             color: var(--text-secondary);
-            line-height: 1.8;
-            max-width: 500px;
+            letter-spacing: 0.02em;
+        }
+        .section-header-bar h3 span {
+            color: #d35400;
+            margin: 0 8px;
+            font-weight: 300;
+        }
+        .section-header-bar a {
+            color: #d35400;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+        .section-header-bar a:hover {
+            color: #e67e22;
+            text-decoration: underline;
         }
 
-        @media (max-width: 1024px) {
-            .founder-row { grid-template-columns: 1fr; gap: 3rem; }
-            .founder-row, .founder-row:nth-child(even) { direction: ltr; }
-            .founder-visual { max-width: 500px; margin: 0 auto; animation: none; opacity: 1; transform: none; }
-            .founder-info { animation: none; opacity: 1; transform: none; }
-        }
-
+        /* responsive for video cards */
         @media (max-width: 768px) {
-            .founder-visual { aspect-ratio: 1 / 1; }
-            .founder-name { font-size: 1.5rem; }
-            .founder-role { font-size: 0.95rem; }
-            .founder-bio { font-size: 0.95rem; }
+            .video-bar-track .video-card.portrait {
+                width: 180px;
+            }
+            .video-bar-track .video-card .video-play-btn i {
+                font-size: 2rem;
+                padding: 10px 12px 10px 14px;
+            }
         }
-
         @media (max-width: 480px) {
-            .founder-visual { aspect-ratio: 4 / 3; }
-            .founder-name { font-size: 1.3rem; }
-            .founder-role { font-size: 0.85rem; }
-            .founder-bio { font-size: 0.9rem; }
+            .video-bar-track .video-card.portrait {
+                width: 160px;
+            }
         }
 
-        /* ===== CLIENTS LOGOS — CIRCLE CROP (from homepage) ===== */
+        /* ===== CLIENT LOGOS — CIRCLE CROP (from homepage) ===== */
         .clients-section {
             background: var(--bg-deep);
             border-top: 1px solid var(--border-subtle);
@@ -1603,138 +1590,6 @@
             .cta-actions { justify-content: center; }
         }
 
-        /* ===== INSTAGRAM FEED ===== */
-        .instagram { background: var(--bg-deep); }
-
-        .insta-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
-        }
-
-        .insta-item {
-            position: relative;
-            aspect-ratio: 1;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .insta-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-smooth);
-        }
-
-        .insta-item:hover img { transform: scale(1.08); }
-
-        .insta-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.8) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all var(--transition-smooth);
-        }
-
-        .insta-item:hover .insta-overlay { opacity: 1; }
-
-        .insta-overlay .insta-play-btn {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            color: #030508;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-accent);
-            transform: scale(0.8);
-            transition: all var(--transition-bounce);
-        }
-
-        .insta-item:hover .insta-overlay .insta-play-btn { transform: scale(1); }
-
-        .insta-reel-info {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 1.5rem 1.2rem 1rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(3, 5, 8, 0.95) 100%);
-        }
-
-        .insta-reel-info .reel-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.25rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .insta-reel-info .reel-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        .insta-reel-info .reel-meta i { color: var(--accent); }
-
-        @media (max-width: 1024px) {
-            .insta-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        }
-
-        @media (max-width: 576px) {
-            .insta-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        .hero-scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both, bounce 2s ease-in-out 1.5s infinite;
-        }
-        .hero-scroll-indicator a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: color var(--transition-fast);
-        }
-        .hero-scroll-indicator a:hover {
-            color: var(--accent);
-        }
-        .hero-scroll-indicator i {
-            font-size: 1.3rem;
-            animation: bounce 1.5s ease-in-out infinite;
-        }
-        @keyframes bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(8px);
-            }
-        }
-
         /* ===== FOOTER ===== */
         .footer {
             position: relative;
@@ -1928,6 +1783,43 @@
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both, bounce 2s ease-in-out 1.5s infinite;
+        }
+        .hero-scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color var(--transition-fast);
+        }
+        .hero-scroll-indicator a:hover {
+            color: var(--accent);
+        }
+        .hero-scroll-indicator i {
+            font-size: 1.3rem;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(8px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1969,14 +1861,7 @@
         </div><br>
 
     <!-- ===== STATS RIBBON ===== -->
-    <!-- <div class="stats-ribbon">
-        <div class="stats-grid reveal reveal-up">
-            <div class="stat-item delay-1"><div class="stat-number" data-count="500">0</div><div class="stat-label">Projects Delivered</div></div>
-            <div class="stat-item delay-2"><div class="stat-number" data-count="150">0</div><div class="stat-label">Happy Clients</div></div>
-            <div class="stat-item delay-3"><div class="stat-number" data-count="12">0</div><div class="stat-label">Industry Awards</div></div>
-            <div class="stat-item delay-4"><div class="stat-number" data-count="8">0</div><div class="stat-label">Years Excellence</div></div>
-        </div>
-    </div> -->
+    <!-- (commented out in original) -->
 
     <!-- ===== OUR STORY ===== -->
     <section class="section our-story" id="story">
@@ -2000,24 +1885,6 @@
                 <div class="story-text-block reveal reveal-left">
                     <h3>Where Vision Meets Cinematic Precision</h3>
                     <p class="lead">At FlyLense, we are a dynamic media production company where creativity meets precision. From script to screen, our passionate team of directors, cinematographers, drone pilots, and editors works closely with you to bring your brand's vision to life.</p>
-                   <!--  <div class="story-values">
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fa-solid fa-camera-retro"></i></div>
-                            <div class="value-text"><h4>Cinematic Production</h4><p>Broadcast-quality films with RED & ARRI cameras</p></div>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                            <div class="value-text"><h4>Social-First Content</h4><p>Reels, Shorts & TikToks optimized for engagement</p></div>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fa-solid fa-drone"></i></div>
-                            <div class="value-text"><h4>Aerial Cinematography</h4><p>Licensed drone pilots for stunning aerial perspectives</p></div>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fa-solid fa-clapperboard"></i></div>
-                            <div class="value-text"><h4>Post-Production Excellence</h4><p>Color grading, VFX, sound design & motion graphics</p></div>
-                        </div>
-                    </div> -->
                     <a href="contact.html" class="story-cta"><i class="fa-solid fa-arrow-right"></i> <span>Let's Collaborate</span></a>
                 </div>
 
@@ -2058,8 +1925,50 @@
         </div>
     </section>
 
+    <!-- ===== REPLACED BTS SECTION WITH VIDEO BAR ===== -->
+    <section class="section" id="bts-videos">
+        <div class="section-inner">
+            <div class="section-header reveal reveal-up">
+                <span class="section-tag">Behind the Scenes</span>
+                <h2 class="section-title">BTS <span class="highlight">Reels</span></h2>
+                <p class="section-subtitle">A glimpse into our creative process — watch our latest portrait reels.</p>
+            </div>
+            <div class="video-bar-wrapper reveal reveal-up delay-1">
+                <div class="video-bar-track-container" id="btsTrackContainer">
+                    <div class="video-bar-track" id="btsTrack">
+                        <!-- Video cards – copied from homepage portrait section (first 4) -->
+                        <div class="video-card portrait" data-video="assets/Videos/Education/Manthan Reel 01.mp4" data-poster="assets/thumbnails/Manthan Reel 01.png" data-title="Manthan Reel 01" data-duration="3:45" data-category="Education">
+                            <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/1.png"><source src="assets/Videos/BTS/1.mp4" type="video/mp4"></video>
+                            <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                            <span class="video-label">Behind the Podcast</span>
+                            <span class="video-duration">3:45</span>
+                        </div>
+                        <div class="video-card portrait" data-video="assets/Videos/Food & Restaurent/Videos/Tandos_Grill_Reel_01.mp4" data-poster="assets/thumbnails/Tandos_Grill_Reel_01.png" data-title="Tando's Grill Reel" data-duration="5:20" data-category="Food & Restaurant">
+                            <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/2.png"><source src="assets/Videos/BTS/2.mp4" type="video/mp4"></video>
+                            <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                            <span class="video-label">Rockwoods School</span>
+                            <span class="video-duration">5:20</span>
+                        </div>
+                        <div class="video-card portrait" data-video="assets/Videos/Jwellery/Videos/Nisar_Jewellery_Reel_09.mp4" data-poster="assets/thumbnails/Nisar_Jewellery_Reel_09.png" data-title="Nisar Jewellery Reel" data-duration="8:42" data-category="Jewellery">
+                            <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/3.png"><source src="assets/Videos/BTS/3.mp4" type="video/mp4"></video>
+                            <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                            <span class="video-label">Tandoos BTS</span>
+                            <span class="video-duration">8:42</span>
+                        </div>
+                        <div class="video-card portrait" data-video="assets/Videos/Education/Furniture_World_Model_Reel_01.mp4" data-poster="assets/thumbnails/Furniture_World_Model_Reel_01.png" data-title="Furniture World Model Reel 01" data-duration="4:15" data-category="Lifestyle">
+                           <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/4.png"><source src="assets/Videos/BTS/4.mp4" type="video/mp4"></video>
+                            <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
+                            <span class="video-label">Ankura Hospitals</span>
+                            <span class="video-duration">4:15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== INSTAGRAM REELS ===== -->
-    <section class="instagram-section" id="instagram">
+   <!--  <section class="instagram-section" id="instagram">
         <div class="section-inner">
             <div class="section-header reveal reveal-up">
                 <span class="section-tag">BTS Feed</span>
@@ -2092,40 +2001,12 @@
                 <a href="https://www.instagram.com/flylensemediapartner/" target="_blank" class="btn-secondary"><i class="fa-brands fa-instagram"></i> Follow @flylensemediapartner</a>
             </div>
         </div>
-    </section>
-
-    <!-- ===== OUR FOUNDERS ===== -->
-    <!-- <section class="section founders">
-        <div class="section-inner">
-            <div class="founders-header reveal reveal-up">
-                <span class="section-tag">Leadership</span>
-                <h2 class="section-title">Meet Our <span class="highlight">Founders</span></h2>
-                <p class="section-subtitle">Visionary leaders driving cinematic excellence</p>
-            </div>
-            <div class="founder-row">
-                <div class="founder-visual">
-                    <img src="img/10.png" alt="Founder 1" onerror="this.src='img/placeholder-founder.jpg'">
-                </div>
-                <div class="founder-info">
-                    <h3 class="founder-name">Founder Name <a href="#" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></h3>
-                    <p class="founder-role">Co-Founder & Creative Director</p>
-                    <p class="founder-bio">Visionary creative director with 10+ years crafting award-winning brand films. Passionate about storytelling that connects emotionally and converts commercially.</p>
-                </div>
-            </div>
-            <div class="founder-row">
-                <div class="founder-info">
-                    <h3 class="founder-name">Co-Founder Name <a href="#" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></h3>
-                    <p class="founder-role">Co-Founder & Operations Director</p>
-                    <p class="founder-bio">Operations expert ensuring flawless execution from pre-production to delivery. Masters complex logistics while maintaining creative integrity and client satisfaction.</p>
-                </div>
-                <div class="founder-visual">
-                    <img src="img/4.png" alt="Co-Founder" onerror="this.src='img/placeholder-founder.jpg'">
-                </div>
-            </div>
-        </div>
     </section> -->
 
-    <!-- ===== CLIENT LOGOS — CIRCLE CROP (copied from homepage) ===== -->
+    <!-- ===== BTS REELS ===== -->
+    <!-- -->
+
+    <!-- ===== CLIENT LOGOS — CIRCLE CROP ===== -->
     <section class="section clients-section" id="clients">
         <div class="section-inner">
             <div class="section-header reveal reveal-up">
@@ -2155,19 +2036,6 @@
         </div>
     </section>
 
-    <!-- ===== INSTAGRAM FEED ===== -->
-    <!-- <section class="section instagram" id="instagram">
-        <div class="section-inner">
-            <div class="section-header reveal reveal-up">
-                <span class="section-tag">Social Proof</span>
-                <h2 class="section-title">From Our <span class="highlight">Instagram</span></h2>
-                <p class="section-subtitle">Behind-the-scenes, project highlights & creative process</p>
-            </div>
-            <div class="insta-grid" id="instaGrid">
-            </div>
-        </div>
-    </section> -->
-
     <!-- ===== FOOTER ===== -->
     
 
@@ -2178,7 +2046,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Page-specific: Reveal animations
+            // ── Reveal animations ──
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2186,10 +2054,9 @@
                     }
                 });
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-            // Page-specific: Counter animation
+            // ── Counter animation ──
             const counters = document.querySelectorAll('.stat-number');
             const counterObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -2212,7 +2079,7 @@
             }, { threshold: 0.5 });
             counters.forEach(c => counterObserver.observe(c));
 
-            // Page-specific: Client logos for marquee (circular crop)
+            // ── Client logos marquee ──
             const clientLogos = [
                 'img/clients/1.png', 'img/clients/2.png', 'img/clients/3.png', 'img/clients/4.png', 'img/clients/5.png',
                 'img/clients/6.png', 'img/clients/7.png', 'img/clients/8.png', 'img/clients/9.png', 'img/clients/10.png',
@@ -2227,18 +2094,116 @@
                         <img src="${logo}" alt="Client ${i+1}" loading="lazy" />
                     </div>`
                 ).join('');
-                track.innerHTML = html + html; // duplicate for seamless loop
+                track.innerHTML = html + html;
             }
             populateBrandTrack(document.getElementById('brandTrack1'));
 
-            // Instagram Reels are embedded via blockquote - no JS needed
+            // ── VIDEO BAR NAVIGATION & PLAY/PAUSE ──
+
+            // 1) Video play/pause on click (same as homepage)
+            function pauseAllInlineVideos() {
+                document.querySelectorAll('.video-card video.video-bg').forEach(v => {
+                    if (!v.paused) {
+                        v.pause();
+                        v.removeAttribute('controls');
+                        v.muted = true;
+                        const card = v.closest('.video-card');
+                        const btn = card ? card.querySelector('.video-play-btn') : null;
+                        if (btn) btn.classList.remove('hidden');
+                        if (card) card.classList.remove('playing');
+                    }
                 });
-    
+            }
+
+            document.addEventListener('click', function(e) {
+                const video = e.target.closest('.video-card video.video-bg');
+                if (!video) return;
+                const card = video.closest('.video-card');
+                const btn = card ? card.querySelector('.video-play-btn') : null;
+
+                if (video.paused) {
+                    pauseAllInlineVideos();
+                    if (btn) btn.classList.add('hidden');
+                    video.setAttribute('controls', '');
+                    video.muted = false;
+                    if (card) card.classList.add('playing');
+                    video.play().catch(() => {
+                        if (btn) btn.classList.remove('hidden');
+                        video.removeAttribute('controls');
+                        video.muted = true;
+                        if (card) card.classList.remove('playing');
+                    });
+                } else {
+                    video.pause();
+                    video.removeAttribute('controls');
+                    video.muted = true;
+                    if (card) card.classList.remove('playing');
+                    if (btn) btn.classList.remove('hidden');
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                const btn = e.target.closest('.video-play-btn');
+                if (!btn) return;
+                e.stopPropagation();
+                const card = btn.closest('.video-card');
+                if (!card) return;
+                const video = card.querySelector('video.video-bg');
+                if (!video) return;
+                pauseAllInlineVideos();
+                btn.classList.add('hidden');
+                video.setAttribute('controls', '');
+                video.muted = false;
+                card.classList.add('playing');
+                video.play().catch(() => {
+                    btn.classList.remove('hidden');
+                    card.classList.remove('playing');
+                });
+            });
+
+            // 2) Setup navigation for BTS video bar
+            function setupVideoBarNav(trackId, containerId, prevId, nextId) {
+                const track = document.getElementById(trackId);
+                const container = document.getElementById(containerId);
+                const prevBtn = document.getElementById(prevId);
+                const nextBtn = document.getElementById(nextId);
+                if (!track || !container || !prevBtn || !nextBtn) return;
+
+                const scrollAmount = 290 + 24; // card width + gap
+
+                prevBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+                nextBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+
+                function updateButtons() {
+                    const maxScroll = container.scrollWidth - container.clientWidth;
+                    const atStart = container.scrollLeft < 10;
+                    const atEnd = container.scrollLeft >= maxScroll - 10;
+                    prevBtn.style.opacity = atStart ? '0' : '1';
+                    prevBtn.style.visibility = atStart ? 'hidden' : 'visible';
+                    prevBtn.style.pointerEvents = atStart ? 'none' : 'auto';
+                    nextBtn.style.opacity = atEnd ? '0' : '1';
+                    nextBtn.style.visibility = atEnd ? 'hidden' : 'visible';
+                    nextBtn.style.pointerEvents = atEnd ? 'none' : 'auto';
+                }
+
+                container.addEventListener('scroll', updateButtons);
+                updateButtons();
+            }
+
+            setupVideoBarNav('btsTrack', 'btsTrackContainer', 'btsPrev', 'btsNext');
+
+            // ── Instagram embeds ──
+            if (window.instgrm && window.instgrm.Embeds) {
+                window.instgrm.Embeds.process();
+            }
+        });
     </script>
     <div id="footer-placeholder"></div>
     
-    
-
     <script>
         fetch("header.html").then(r => r.text()).then(html => {
             const placeholder = document.getElementById("header-placeholder");
@@ -2260,8 +2225,3 @@
     <script async defer src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
-
-
-
-
-

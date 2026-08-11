@@ -900,8 +900,8 @@
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            /*-webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);*/
         }
         .video-bar-track-container::-webkit-scrollbar {
             display: none;
@@ -921,7 +921,7 @@
             aspect-ratio: 9 / 16;
         }
         .video-bar-track .video-card.cinematic {
-            width: 1030px;
+            width: 1000px;
             aspect-ratio: 1920 / 1080;
         }
         .video-bar-track .video-card:hover {
@@ -1133,6 +1133,7 @@
 
         /* ===== SOCIAL MANAGEMENT - NO HOVER ===== */
         .insta-item {
+            align-items: center;
             position: relative;
             border-radius: var(--radius-lg);
             overflow: auto;
@@ -1141,6 +1142,7 @@
         }
 
         .insta-item img {
+              align-items: center;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1490,9 +1492,9 @@
                     </div>
 
                     <!-- Card 4: MUN Begins at VIP's -->
-                    <div class="video-card portrait" data-video="assets/Videos/Education/MUN BEGINS AT VIP'S LAUNCHES MODEL UNITED NATIONSDiplomacy Starts HereAt VIP's International Sch.mp4" data-poster="assets/thumbnails/MUN BEGINS AT VIP'S LAUNCHES MODEL UNITED NATIONSDiplomacy Starts HereAt VIP's International Sch.png" data-title="MUN Begins at VIP's" data-duration="2:30" data-category="Education">
-                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/MUN BEGINS AT VIP'S LAUNCHES MODEL UNITED NATIONSDiplomacy Starts HereAt VIP's International Sch.png">
-                            <source src="assets/Videos/Education/MUN BEGINS AT VIP'S LAUNCHES MODEL UNITED NATIONSDiplomacy Starts HereAt VIP's International Sch.mp4" type="video/mp4">
+                    <div class="video-card portrait" data-video="assets/Videos/vipmun.mp4" data-poster="assets/thumbnails/vipmun.png" data-title="MUN Begins at VIP's" data-duration="2:30" data-category="Education">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/vipmun.png">
+                            <source src="assets/Videos/Education/vipmun.mp4" type="video/mp4">
                         </video>
                         <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
                         <span class="video-label">MUN at VIP's</span>
@@ -1550,9 +1552,9 @@
                     </div>
 
                     <!-- Card 10: VIP's Muay Thai Championship -->
-                    <div class="video-card portrait" data-video="assets/Videos/Education/MUAY THAI CHAMPIONSHIP AT VIP'SSTRENGTH, SKILL & SPIRITAt VIP's International School, we believe.mp4" data-poster="assets/thumbnails/MUAY THAI CHAMPIONSHIP AT VIP'S STRENGTH, SKILL & SPIRIT.png" data-title="VIP's Muay Thai Championship" data-duration="3:45" data-category="Education">
-                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/MUAY THAI CHAMPIONSHIP AT VIP'S STRENGTH, SKILL & SPIRIT.png">
-                            <source src="assets/Videos/Education/MUAY THAI CHAMPIONSHIP AT VIP'SSTRENGTH, SKILL & SPIRITAt VIP's International School, we believe.mp4" type="video/mp4">
+                    <div class="video-card portrait" data-video="assets/Videos/Education/vipm.mp4" data-poster="assets/thumbnails/vipm.png" data-title="VIP's Muay Thai Championship" data-duration="3:45" data-category="Education">
+                        <video class="video-bg" playsinline preload="metadata" loop muted poster="assets/thumbnails/vipm.png">
+                            <source src="assets/Videos/Education/vipm.mp4" type="video/mp4">
                         </video>
                         <div class="video-play-btn"><i class="bi bi-play-circle"></i></div>
                         <span class="video-label">VIP's Muay Thai</span>
@@ -1652,19 +1654,19 @@
                 <p class="section-subtitle">Complete digital presence management for educational institutions</p>
             </div>
 
-            <div class="reveal reveal-up delay-1" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
-                <div class="insta-item">
+            <div class="reveal reveal-up delay-1" style=" align-content: center; align-items: center; width: 90%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                <!-- <div class="insta-item">
                    <a href="https://www.instagram.com/global_techno_schools/"> <img src="assets/mockups/1.png" alt="Code.in Social Media"></a>
-                </div>
+                </div> -->
                 <div class="insta-item">
                     <img src="img/icons/2.avif" alt="Full Stack Academy Social Media">
                 </div>
                 <div class="insta-item">
                     <img src="img/icons/3.avif" alt="Global School Social Media">
                 </div>
-                <div class="insta-item">
+                <!-- <div class="insta-item">
                     <img src="img/icons/4.avif" alt="Saritha School Social Media">
-                </div>
+                </div> -->
             </div>
 
             <div class="reveal reveal-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -1705,8 +1707,6 @@
             </div>
         </div>
     </section>
-
-    <div id="footer-placeholder"></div>
 
     <!-- ============================================================ -->
     <!-- JAVASCRIPT                                                   -->
@@ -1753,13 +1753,13 @@
                 { name: "Dawn School", logo: "assets/Logos/Education/Dawn High School logo.png" },
                 { name: "Expo", logo: "assets/Logos/Education/expo logo.png" },
                 { name: "Focus School", logo: "assets/Logos/Education/focus logo.png" },
-                { name: "Full Stack Academy", logo: "assets/Logos/Education/full stack academy logo.png" },
+                { name: "Full Stack Academy", logo: "assets/Logos/Education/fsa logo.png" },
                 { name: "GEMS School", logo: "assets/Logos/Education/global school logo.png" },
                 { name: "Global School", logo: "assets/Logos/Education/global logo.png" },
                 { name: "Hyderabad International School", logo: "assets/Logos/Education/hyderabad international school logo.jpg" },
-                { name: "IZM School", logo: "assets/Logos/Education/izm logo.jpg" },
-                { name: "Jamiatul Muflihaat", logo: "assets/Logos/Education/jamiatul muflihaat logo.jpg" },
-                { name: "Laksh School", logo: "assets/Logos/Education/laksh logo.jpg" },
+                // { name: "IZM School", logo: "assets/Logos/Education/izm logo.jpg" },
+                // { name: "Jamiatul Muflihaat", logo: "assets/Logos/Education/jamiatul muflihaat logo.jpg" },
+                // { name: "Laksh School", logo: "assets/Logos/Education/laksh logo.jpg" },
                 { name: "Hidiya School", logo: "assets/Logos/Education/Hidaya logo.png" },
                 { name: "Sarita School", logo: "assets/Logos/Education/saritha logo.png" },
                 { name: "Master Mind", logo: "assets/Logos/Education/master mind logo.png" },
@@ -1768,7 +1768,7 @@
                 { name: "Nobal School", logo: "assets/Logos/Education/nobal vision logo.png" },
                 { name: "Oakridge School", logo: "assets/Logos/Education/Oakridge logo.png" },
                 { name: "Phoenix School", logo: "assets/Logos/Education/phonix logo.png" },
-                { name: "Pro Dress School", logo: "assets/Logos/Education/prodress logo.jpg" },
+                // { name: "Pro Dress School", logo: "assets/Logos/Education/prodress logo.jpg" },
                 { name: "Rainbow School", logo: "assets/Logos/Education/Rainbow School logo.png" },
                 { name: "Rockwoods School", logo: "assets/Logos/Education/Rockwoods logo.png" },
                 { name: "Shuja Grammar School", logo: "assets/Logos/Education/shuja grammer logo.png" },
@@ -1881,7 +1881,7 @@
                     return;
                 }
                 
-                const scrollAmount = 1030; // card width + gap
+                const scrollAmount = 1000; // card width + gap
                 
                 prevBtn.addEventListener('click', () => {
                     container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -2099,7 +2099,8 @@
             console.log('✅ Education Portfolio – all sections rendered and visible.');
         })();
     </script>
-
     
+    <div id="footer-placeholder"></div>
+     <script>fetch("footer.html").then(r => r.text()).then(html => { document.getElementById("footer-placeholder").outerHTML = html; });</script>
 </body>
 </html>

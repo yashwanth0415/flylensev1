@@ -2086,11 +2086,11 @@
                 { name: "IJ Jewellers", logo: "assets/Logos/Jewllers/IJ LOGO.png" },
                 { name: "Maram Jewellery", logo: "assets/Logos/Jewllers/mamaratam logo.png" },
                 { name: "SNJ Jewels", logo: "assets/Logos/Jewllers/sree nakoda jewlerry logo.png" },
-                { name: "S-Craft", logo: "assets/Logos/Jewllers/s craft logo.png" },
+                { name: "S-Craft", logo: "assets/Logos/Jewllers/s craft logo.jpg" },
                 { name: "Krishi Jewellers", logo: "assets/Logos/Jewllers/krishdewels logo.png" },
-                { name: "Nisar Jewellery (Alt)", logo: "assets/Logos/Jewllers/nisar logo.png" },
+                // { name: "Nisar Jewellery (Alt)", logo: "assets/Logos/Jewllers/nisar logo.png" },
                 { name: "Royal Jewellers", logo: "assets/Logos/Jewllers/royal logo.png" },
-                { name: "S-Craft Jewellery", logo: "assets/Logos/Jewllers/s craft logo.png" },
+                // { name: "S-Craft Jewellery", logo: "assets/Logos/Jewllers/s craft logo.png" },
                 { name: "Tia Jewellers", logo: "assets/Logos/Jewllers/tia logo.png" },
             ];
 
@@ -2469,5 +2469,7 @@
             }
         }
     </script>
+     <div id="footer-placeholder"></div>
+     <script>fetch("footer.html").then(r => r.text()).then(html => { document.getElementById("footer-placeholder").outerHTML = html; });</script>
 </body>
 </html>
